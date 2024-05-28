@@ -1,9 +1,8 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import { Image } from 'expo-image';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
@@ -13,22 +12,76 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-      }}>
+        tabBarStyle: {
+          height: 80,
+          paddingBottom: 13,
+          backgroundColor: Colors[colorScheme ?? 'light'].background,
+          borderTopRightRadius: 20,
+          borderTopLeftRadius: 20,
+        },
+      }}
+    >
       <Tabs.Screen
-        name="index"
+        name='index'
         options={{
-          title: 'Home',
+          title: 'Explore',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+            <Image
+              source={
+                focused
+                  ? require('@/assets/images/icons/explore-pressed.svg')
+                  : require('@/assets/images/icons/explore-normal.svg')
+              }
+              style={{ width: 30, height: 30 }}
+            />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name='saved'
         options={{
-          title: 'Explore',
+          title: 'Saved',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <Image
+              source={
+                focused
+                  ? require('@/assets/images/icons/bookmark-pressed.svg')
+                  : require('@/assets/images/icons/bookmark-normal.svg')
+              }
+              style={{ width: 30, height: 30 }}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name='support'
+        options={{
+          title: 'Support',
+          tabBarIcon: ({ color, focused }) => (
+            <Image
+              source={
+                focused
+                  ? require('@/assets/images/icons/support-pressed.svg')
+                  : require('@/assets/images/icons/support-normal.svg')
+              }
+              style={{ width: 30, height: 30 }}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name='profile'
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color, focused }) => (
+            <Image
+              source={
+                focused
+                  ? require('@/assets/images/icons/user-pressed.svg')
+                  : require('@/assets/images/icons/user-normal.svg')
+              }
+              style={{ width: 30, height: 30 }}
+            />
           ),
         }}
       />
