@@ -1,6 +1,6 @@
 import { StyleSheet, TextInput, View } from 'react-native';
 import React from 'react';
-import { tintColorDark, tintColorLight } from '../constants/Colors';
+import { darkColor, lightColor } from '../constants/Colors';
 
 type Props = TextInput['props'];
 const Input = (props: Props) => {
@@ -24,12 +24,12 @@ const styles = StyleSheet.create({
     display: 'flex',
   },
   input: {
-    backgroundColor: tintColorLight,
+    backgroundColor: darkColor,
     color: '#fff',
     paddingVertical: 10,
     paddingHorizontal: 15,
     borderRadius: 10,
-    borderColor: tintColorDark,
+    borderColor: lightColor,
     width: 350,
     shadowColor: '#fff',
     shadowOffset: {
