@@ -28,8 +28,8 @@ const EventCard = ({title, location, dayOfTheMonth, month, imageUrl}: Props) => 
             >
               {title}
             </Text>
-            <View style={{ flexDirection: 'row', width: '100%' }}>
-              <EvilIcons name='location' size={23} color={lightColor} />
+            <View style={{ flexDirection: 'row', width: '100%', gap: 10 }}>
+              <Feather name='map-pin' size={17} color={lightColor} />
               <Text style={{ color: lightColor }}>{location}</Text>
             </View>
           </View>
