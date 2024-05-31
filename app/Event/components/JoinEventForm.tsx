@@ -1,31 +1,32 @@
-import React from 'react';
+import React, { ReactNode, useState } from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import Input from '@/components/inputs/TextInput';
+import StringInput from '@/components/inputs/StringInput';
 import GoldButton from '@/components/GoldButton';
+import { joinEventSchema } from '@/validation';
+import LongStringInput from '@/components/inputs/LongStringInput';
+import { useModal } from '@/app/context/ModelContext';
+import SuccessRequest from '../Join/components/SuccessRequest';
+import PhoneInput from 'react-native-international-phone-number';
+import { darkColor, goldColor } from '@/constants/Colors';
 
 const JoinEventForm = () => {
-  const validationSchema = z.object({
-    name: z
-      .string()
-      .min(2, { message: 'Name must be at least 2 characters' })
-      .max(50, { message: 'Name must be less than 50 characters' }),
-    phone: z.coerce.number({ required_error: 'Phone is required' }).gte(0),
-  });
-
+  const [charCount, setCharCount] = useState(0);
+  const [selectedCountry, setSelectedCountry] = useState(null);
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<z.infer<typeof validationSchema>>({
-    resolver: zodResolver(validationSchema),
+  } = useForm<z.infer<typeof joinEventSchema>>({
+    resolver: zodResolver(joinEventSchema),
     mode: 'onSubmit',
   });
+  const { handleOpen } = useModal();
 
-  const onSubmit = (data: z.infer<typeof validationSchema>) => {
-    console.log('Form submitted', data);
+  const onSubmit = (data: z.infer<typeof joinEventSchema>) => {
+    handleOpen(<SuccessRequest />);
   };
 
   return (
@@ -36,13 +37,90 @@ const JoinEventForm = () => {
         defaultValue=''
         rules={{ required: true, minLength: 2, maxLength: 100 }}
         render={({ field: { onChange, value } }) => (
-          <Input
+          <StringInput
             onChangeText={value => onChange(value)}
             value={value}
             error={errors.name as any}
             errorText={errors?.name?.message as string}
             placeholder='Enter your full name'
             title='Full Name'
+          />
+        )}
+      />
+      <Controller
+        name='phone'
+        control={control}
+        defaultValue=''
+        rules={{ required: true, minLength: 2, maxLength: 100 }}
+        render={({ field: { onChange, value } }) => (
+          <>
+            <Text style={styles.title}>Phone Number</Text>
+
+            <PhoneInput
+              value={value}
+              phoneInputStyles={{
+                container: {
+                  backgroundColor: darkColor,
+                  borderWidth: 1,
+                  borderStyle: 'solid',
+                  borderColor: errors.phone ? 'red' : goldColor,
+                },
+                flagContainer: {
+                  borderTopLeftRadius: 7,
+                  borderBottomLeftRadius: 7,
+                  backgroundColor: darkColor,
+                  justifyContent: 'center',
+                },
+                flag: {},
+                caret: {
+                  color: '#F3F3F3',
+                  fontSize: 14,
+                },
+                divider: {
+                  backgroundColor: '#F3F3F3',
+                },
+                callingCode: {
+                  fontSize: 14,
+                  fontWeight: 'bold',
+                  color: '#F3F3F3',
+                },
+                input: {
+                  color: '#F3F3F3',
+                  fontSize: 14,
+                },
+              }}
+              theme='dark'
+              defaultCountry='US'
+              onChangePhoneNumber={value => onChange(value)}
+              selectedCountry={selectedCountry}
+              onChangeSelectedCountry={(country: React.SetStateAction<any>) =>
+                setSelectedCountry(country)
+              }
+            />
+            {errors.phone && (
+              <Text style={styles.errorText}>{errors?.phone?.message}</Text>
+            )}
+          </>
+        )}
+      />
+      <Controller
+        name='notes'
+        control={control}
+        defaultValue=''
+        rules={{ required: false, minLength: 2, maxLength: 200 }}
+        render={({ field: { onChange, value } }) => (
+          <LongStringInput
+            onChangeText={value => {
+              onChange(value);
+              setCharCount(value.length);
+            }}
+            maxLength={200}
+            charCount={charCount}
+            value={value}
+            error={errors.notes as any}
+            errorText={errors?.notes?.message as string}
+            placeholder='Let us know about the service you are looking...'
+            title='Add Notes (optional)'
           />
         )}
       />
@@ -65,5 +143,17 @@ const styles = StyleSheet.create({
     gap: 20,
     width: '100%',
     height: 'auto',
+  },
+  title: {
+    color: '#fff',
+    fontSize: 16,
+    marginBottom: -15,
+    alignSelf: 'flex-start',
+  },
+  errorText: {
+    fontSize: 12,
+    color: 'red',
+    marginTop: -15,
+    alignSelf: 'flex-start',
   },
 });
