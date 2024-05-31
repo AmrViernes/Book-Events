@@ -6,7 +6,7 @@ import { z } from 'zod';
 import StringInput from '@/components/inputs/StringInput';
 import GoldButton from '@/components/GoldButton';
 import { joinEventSchema } from '@/validation';
-import LongStringInput from '@/components/inputs/LongStringInput';
+import TextareaInput from '@/components/inputs/TextareaInput';
 import { useModal } from '@/app/context/ModelContext';
 import SuccessRequest from '../Join/components/SuccessRequest';
 import PhoneInput from 'react-native-international-phone-number';
@@ -109,7 +109,7 @@ const JoinEventForm = () => {
         defaultValue=''
         rules={{ required: false, minLength: 2, maxLength: 200 }}
         render={({ field: { onChange, value } }) => (
-          <LongStringInput
+          <TextareaInput
             onChangeText={value => {
               onChange(value);
               setCharCount(value.length);
