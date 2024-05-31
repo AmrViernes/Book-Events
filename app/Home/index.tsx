@@ -15,12 +15,14 @@ import { darkColor, lightColor } from '@/constants/Colors';
 import ExploreScreenCategories from '@/components/Categories/ExploreScreenCategories';
 import EventCard from '@/components/Cards/EventCard';
 import { useRouter } from 'expo-router';
+import NoStackScreen from '@/components/Stacks/NoStackScreen';
 
 const Explore = () => {
   const router = useRouter();
   const colorScheme = useColorScheme();
   return (
     <SafeAreaView style={styles.container}>
+      <NoStackScreen/>
       <View style={styles.headerContainer}>
         <View style={styles.titleContainer}>
           <Text style={styles.titleText}>Explore luxury events</Text>
