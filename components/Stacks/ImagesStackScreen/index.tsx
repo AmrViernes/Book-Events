@@ -41,7 +41,7 @@ const ImagesStackScreen = ({ images }: { images: string[] }) => {
             style={[
               styles.dot,
               {
-                width: currentIndex === index ? 20 : 10,
+                width: currentIndex === index ? 30 : 10,
                 backgroundColor: currentIndex === index ? goldColor : '#cccc',
               },
             ]}
