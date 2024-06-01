@@ -19,18 +19,19 @@ import NoStackScreen from '@/components/Stacks/NoStackScreen';
 
 const Explore = () => {
   const router = useRouter();
-  const colorScheme = useColorScheme();
   return (
     <SafeAreaView style={styles.container}>
-      <NoStackScreen/>
+      <NoStackScreen />
       <View style={styles.headerContainer}>
         <View style={styles.titleContainer}>
           <Text style={styles.titleText}>Explore luxury events</Text>
-          <Image
-            source={require('@/assets/images/icons/notification.svg')}
-            placeholder='Notification'
-            style={{ width: 80, height: 80 }}
-          />
+          <Pressable onPress={() => router.push('/Notifications')}>
+            <Image
+              source={require('@/assets/images/icons/notification.svg')}
+              placeholder='Notification'
+              style={{ width: 80, height: 80 }}
+            />
+          </Pressable>
         </View>
         <View style={styles.inputContainer}>
           <TextInput
