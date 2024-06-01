@@ -1,6 +1,6 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Colors } from '@/constants/Colors';
+import { Colors, darkColor } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { Image } from 'expo-image';
 
@@ -21,6 +21,7 @@ export default function TabLayout() {
           backgroundColor: Colors[colorScheme ?? 'light'].background,
           borderTopRightRadius: 20,
           borderTopLeftRadius: 20,
+          borderTopColor: darkColor
         },
       }}
     >
