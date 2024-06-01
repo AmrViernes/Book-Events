@@ -4,7 +4,8 @@ import { Feather } from '@expo/vector-icons';
 import { Image } from 'expo-image';
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import JoinEventForm from '../components/JoinEventForm';
+import JoinEventForm from '@/app/Event/components/JoinEventForm';
+import GuestConfirmButtons from '../components/GuestConfirmButtons';
 
 const JoinUsScreen = () => {
   return (
@@ -37,15 +38,17 @@ const JoinUsScreen = () => {
           </View>
           <View style={styles.dateSubContainer}>
             <Feather name='map-pin' size={24} color='white' />
-            <Text style={styles.dateText}>
-              Cairo, Egypt
-            </Text>
+            <Text style={styles.dateText}>Cairo, Egypt</Text>
           </View>
         </View>
 
-      <View style={{ width: '100%' }}>
-        <JoinEventForm />
-      </View>
+        <View style={{ width: '100%' }}>
+          {'isGuest' === 'isGuest' ? (
+            <GuestConfirmButtons />
+          ) : (
+            <JoinEventForm />
+          )}
+        </View>
       </View>
     </ScrollView>
   );
