@@ -7,7 +7,7 @@ import ImagesStackIcons from '@/components/Stacks/ImagesStackScreen/StackIcons';
 import { Image } from 'expo-image';
 import MapView from 'react-native-maps';
 import { Feather } from '@expo/vector-icons';
-import GoldButton from '@/components/GoldButton';
+import GoldButton from '@/components/buttons/GoldButton';
 
 const EventDetailsScreen = () => {
   const { eventId } = useLocalSearchParams();
@@ -141,7 +141,10 @@ const EventDetailsScreen = () => {
         </View>
 
         <View style={[styles.container, { marginVertical: 30 }]}>
-          <GoldButton title='Request to Join' onPress={() => router.push(`/Event/Join/${eventId}`)}/>
+          <GoldButton
+            title='Request to Join'
+            onPress={() => router.push(`/Event/Join/${eventId}`)}
+          />
         </View>
       </ScrollView>
     </View>
