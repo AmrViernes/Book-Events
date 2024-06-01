@@ -4,11 +4,11 @@ import { Controller, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import StringInput from '@/components/inputs/StringInput';
-import GoldButton from '@/components/GoldButton';
+import GoldButton from '@/components/buttons/GoldButton';
 import { joinEventSchema } from '@/validation';
 import TextareaInput from '@/components/inputs/TextareaInput';
-import { useModal } from '@/app/context/ModelContext';
-import SuccessRequest from '../Join/components/SuccessRequest';
+import { useModal } from '@/context/ModelContext';
+import SuccessRequest from './SuccessRequest';
 import PhoneInput from 'react-native-international-phone-number';
 import { darkColor, goldColor } from '@/constants/Colors';
 
