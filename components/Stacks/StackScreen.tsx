@@ -1,9 +1,20 @@
-import { Pressable, useColorScheme, StyleSheet } from 'react-native';
+import { Pressable, useColorScheme, StyleSheet, Text } from 'react-native';
 import { Stack, useRouter } from 'expo-router';
-import { darkColor, lightColor } from '@/constants/Colors';
+import {
+  backgroundColor,
+  darkColor,
+  goldColor,
+  lightColor,
+} from '@/constants/Colors';
 import { FontAwesome5 } from '@expo/vector-icons';
 
-const StackScreen = ({ title }: { title: string }) => {
+const StackScreen = ({
+  title,
+  showHeaderRight = false,
+}: {
+  title: string;
+  showHeaderRight?: boolean;
+}) => {
   const colorScheme = useColorScheme();
   const router = useRouter();
   return (
@@ -12,8 +23,8 @@ const StackScreen = ({ title }: { title: string }) => {
         options={{
           headerTitle: title,
           headerStyle: {
-            backgroundColor: colorScheme === 'light' ? lightColor : 'black',
-          
+            backgroundColor:
+              colorScheme === 'light' ? backgroundColor : backgroundColor,
           },
           headerTitleAlign: 'center',
           headerTitleStyle: {
@@ -27,6 +38,15 @@ const StackScreen = ({ title }: { title: string }) => {
             >
               <FontAwesome5 name='arrow-left' size={24} color='white' />
             </Pressable>
+          ),
+          headerRight: () => (
+            <>
+              {showHeaderRight && (
+                <Pressable onPress={() => {}}>
+                  <Text style={{ color: goldColor }}>Clear All</Text>
+                </Pressable>
+              )}
+            </>
           ),
         }}
       />
