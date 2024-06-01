@@ -7,7 +7,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
-const saved = () => {
+const SavedScreen = () => {
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#D0D0D0', dark: '#353636' }}
@@ -110,7 +110,7 @@ const saved = () => {
   );
 };
 
-export default saved;
+export default SavedScreen;
 
 const styles = StyleSheet.create({
   headerImage: {
