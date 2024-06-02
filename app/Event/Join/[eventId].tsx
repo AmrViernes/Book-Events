@@ -1,10 +1,10 @@
-import StackScreen from '@/components/Stacks/StackScreen';
+import StackScreen from '@/components/stacks/StackScreen';
 import { lightColor } from '@/constants/Colors';
 import { Feather } from '@expo/vector-icons';
 import { Image } from 'expo-image';
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
-import JoinEventForm from '@/app/Event/components/JoinEventForm';
+import JoinUsForm from '@/components/forms/JoinUsForm';
 import GuestConfirmButtons from '../components/GuestConfirmButtons';
 
 const JoinUsScreen = () => {
@@ -43,11 +43,7 @@ const JoinUsScreen = () => {
         </View>
 
         <View style={{ width: '100%' }}>
-          {'isGuest' === 'isGuest' ? (
-            <GuestConfirmButtons />
-          ) : (
-            <JoinEventForm />
-          )}
+          {'isGuest' !== 'isGuest' ? <GuestConfirmButtons /> : <JoinUsForm />}
         </View>
       </View>
     </ScrollView>
