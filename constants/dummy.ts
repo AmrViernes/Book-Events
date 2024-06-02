@@ -79,6 +79,29 @@ export const homeMainEvents = [
   },
 ];
 
+export const savedEvents = [
+  {
+    saved: true,
+    shareable: true,
+    category: 'Art',
+    title: 'New home',
+    image: require('@/assets/images/photos/1.png'),
+    dayOfMonth: 22,
+    month: 'Aug',
+    location: 'Cairo, Egypt',
+  },
+  {
+    saved: true,
+    shareable: true,
+    category: 'Hotel',
+    title: 'Stars hotel',
+    image: require('@/assets/images/photos/2.png'),
+    dayOfMonth: 12,
+    month: 'Jan',
+    location: 'London, UK',
+  },
+];
+
 export const notificationsData = [
   {
     id: 1,
