@@ -1,17 +1,13 @@
-import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { lightColor } from '@/constants/Colors';
+import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import GoldButton from '@/components/buttons/GoldButton';
 import GuestProfile from './components/GuestProfile';
 import UserProfile from './components/UserProfile';
 
 const ProfileScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      {/* {'isGust' === 'isGust' && <GuestProfile />} */}
-
-      {'isUser' === 'isUser' && <UserProfile/>}
+      {'isLoggedIn' === 'isLoggedIn' ? <UserProfile /> : <GuestProfile />}
     </SafeAreaView>
   );
 };
@@ -26,5 +22,4 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: '90%',
   },
-  
 });
