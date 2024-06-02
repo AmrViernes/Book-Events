@@ -130,3 +130,26 @@ export const notificationsData = [
     date: '7 hours ago',
   },
 ];
+
+export const Languages = [
+  {
+    name: 'English',
+    code: 'en',
+  },
+  {
+    name: 'French',
+    code: 'fr',
+  },
+  {
+    name: 'Spanish',
+    code: 'es',
+  },
+  {
+    name: 'العربية',
+    code: 'ar',
+  },
+  {
+    name: 'German',
+    code: 'de',
+  },
+];
