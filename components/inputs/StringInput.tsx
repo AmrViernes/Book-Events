@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'column',
+    width: '100%',
   },
   title: {
     color: '#fff',
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: goldColor,
-    width: 350,
+    width: '100%',
     shadowColor: '#fff',
     shadowOffset: {
       width: 0,
