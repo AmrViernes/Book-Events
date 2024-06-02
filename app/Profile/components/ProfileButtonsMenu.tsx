@@ -6,24 +6,30 @@ import {
   MaterialIcons,
   Octicons,
 } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 
 const ProfileButtonsMenu = ({
   isLoggedIn = false,
 }: {
   isLoggedIn: boolean;
 }) => {
+  const router = useRouter();
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled(previousState => !previousState);
   return (
     <View style={styles.container}>
       {isLoggedIn && (
-        <Pressable style={styles.buttonContainer}>
+        <Pressable
+          style={styles.buttonContainer}
+          onPress={() => router.push('/Profile/History')}
+        >
           <Octicons name='history' size={24} color={lightGrayColor} />
           <Text style={styles.title}>History</Text>
         </Pressable>
       )}
       <Pressable
         style={[styles.buttonContainer, { justifyContent: 'space-between' }]}
+        onPress={() => router.push('/Profile/Languages')}
       >
         <View style={styles.languageContainer}>
           <Octicons name='globe' size={24} color={lightGrayColor} />
