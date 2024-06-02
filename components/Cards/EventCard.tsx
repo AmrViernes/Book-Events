@@ -9,12 +9,12 @@ import EvilIcons from '@expo/vector-icons/EvilIcons';
 interface Props {
     title: string;
     location: string;
-    dayOfTheMonth: number;
+    dayOfMonth: number;
     month: string;
     imageUrl: string
 }
 
-const EventCard = ({title, location, dayOfTheMonth, month, imageUrl}: Props) => {
+const EventCard = ({title, location, dayOfMonth, month, imageUrl}: Props) => {
   return (
     <ImageBackground style={styles.container} source={imageUrl}>
       <View style={styles.bookmarkContainer}>
@@ -42,7 +42,7 @@ const EventCard = ({title, location, dayOfTheMonth, month, imageUrl}: Props) => 
               }}
             >
               <Text style={{ color: lightColor, fontWeight: 'bold', position: 'absolute', fontSize: 16, bottom: -2 }}>
-                {dayOfTheMonth}
+                {dayOfMonth}
               </Text>
               <Text style={{ color: lightColor, fontWeight: 'bold', position: 'absolute', top: -4 }}>
                 {month}
