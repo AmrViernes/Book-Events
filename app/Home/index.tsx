@@ -12,10 +12,12 @@ import { Image } from 'expo-image';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AntDesign } from '@expo/vector-icons';
 import { darkColor, lightColor } from '@/constants/Colors';
-import ExploreScreenCategories from '@/components/Categories/ExploreScreenCategories';
-import EventCard from '@/components/Cards/EventCard';
+import ExploreScreenCategories from '@/components/categories/ExploreScreenCategories';
+import EventCard from '@/components/cards/EventCard';
 import { useRouter } from 'expo-router';
-import NoStackScreen from '@/components/Stacks/NoStackScreen';
+import NoStackScreen from '@/components/stacks/NoStackScreen';
+import { FlashList } from '@shopify/flash-list';
+import { homeMainEvents } from '@/constants/dummy';
 
 const Explore = () => {
   const router = useRouter();
@@ -55,33 +57,22 @@ const Explore = () => {
         style={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
       >
-        <Pressable onPress={() => router.push(`/Event/${1}`)}>
-          <EventCard
-            imageUrl={require('@/assets/images/photos/1.png')}
-            dayOfTheMonth={28}
-            month={'Des'}
-            title={'The Grill House'}
-            location={'Lekki, Nigeria'}
-          />
-        </Pressable>
-        <Pressable onPress={() => router.push(`/Event/${2}`)}>
-          <EventCard
-            imageUrl={require('@/assets/images/photos/2.png')}
-            dayOfTheMonth={10}
-            month={'Apr'}
-            title={'Parking Space'}
-            location={'Cebu, Philippines'}
-          />
-        </Pressable>
-        <Pressable onPress={() => router.push(`/Event/${3}`)}>
-          <EventCard
-            imageUrl={require('@/assets/images/photos/3.png')}
-            dayOfTheMonth={3}
-            month={'Jan'}
-            title={'The Lounge Restaurant'}
-            location={'Cairo, Egypt'}
-          />
-        </Pressable>
+        <FlashList
+          data={homeMainEvents}
+          renderItem={({ item }) => (
+            <Pressable onPress={() => router.push(`/Event/${2}`)}>
+              <EventCard
+                title={item.title}
+                imageUrl={item.image}
+                dayOfMonth={item.dayOfMonth}
+                month={item.month}
+                location={item.location}
+              />
+            </Pressable>
+          )}
+          estimatedItemSize={110}
+          keyExtractor={(item) => item.title}
+        />
       </ScrollView>
     </SafeAreaView>
   );
