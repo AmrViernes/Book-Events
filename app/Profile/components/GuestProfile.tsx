@@ -3,8 +3,10 @@ import React from 'react'
 import GoldButton from '@/components/buttons/GoldButton';
 import { lightColor } from '@/constants/Colors';
 import ProfileButtonsMenu from './ProfileButtonsMenu';
+import { useRouter } from 'expo-router';
 
 const GuestProfile = () => {
+  const router = useRouter()
   return (
     <View style={styles.container}>
       <View
@@ -22,10 +24,13 @@ const GuestProfile = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <GoldButton title='Join us now' onPress={() => {}} />
+        <GoldButton
+          title='Join us now'
+          onPress={() => router.push('/Profile/JoinUs')}
+        />
       </View>
 
-      <ProfileButtonsMenu isLoggedIn={false}/>
+      <ProfileButtonsMenu isLoggedIn={false} />
     </View>
   );
 }
@@ -35,7 +40,8 @@ export default GuestProfile
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: '100%',  
+    height: '100%',
+    paddingTop: 50,
   },
   buttonContainer: {
     flexDirection: 'column',
