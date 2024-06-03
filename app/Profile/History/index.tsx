@@ -10,6 +10,7 @@ import HistoryTabs from './components/HistoryTabs';
 import HistoryCard from './components/HistoryCard';
 import { FlashList } from '@shopify/flash-list';
 import { events } from '@/constants/dummy';
+import { lightColor } from '@/constants/Colors';
 
 const HistoryScreen = () => {
   const [selected, setSelected] = useState<string>('Pending');
@@ -19,21 +20,26 @@ const HistoryScreen = () => {
       <SafeAreaView style={styles.container}>
         <HistoryTabs selected={selected} onSelect={setSelected} />
         <GestureHandlerRootView>
-          <ScrollView showsVerticalScrollIndicator={false}>
-            <FlashList
-              data={events.filter((event) => event.requestStatus === selected)}
-              renderItem={({ item }) => (
-                <HistoryCard
-                  title={item.title}
-                  image={item.image}
-                  date={item.date}
-                  requestStatus={item.requestStatus as any}
-                />
-              )}
-              estimatedItemSize={110}
-              keyExtractor={(item) => item.title}
-            />
-          </ScrollView>
+          {events.length === 0 && (
+            <Text style={styles.noHistoryText}>No history found</Text>
+          )}
+          {events.length > 0 && (
+            <ScrollView showsVerticalScrollIndicator={false}>
+              <FlashList
+                data={events.filter(event => event.requestStatus === selected)}
+                renderItem={({ item }) => (
+                  <HistoryCard
+                    title={item.title}
+                    image={item.image}
+                    date={item.date}
+                    requestStatus={item.requestStatus as any}
+                  />
+                )}
+                estimatedItemSize={110}
+                keyExtractor={item => item.title}
+              />
+            </ScrollView>
+          )}
         </GestureHandlerRootView>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -46,5 +52,11 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     height: '100%',
+  },
+  noHistoryText: {
+    textAlign: 'center',
+    fontSize: 18,
+    color: lightColor,
+    marginTop: 100,
   },
 });
