@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import StackScreen from '@/components/stacks/StackScreen';
 import NoNotifications from './components/NoNotifications';
@@ -6,6 +6,7 @@ import NotificationItem from './components/NotificationItem';
 import {
   Swipeable,
   GestureHandlerRootView,
+  ScrollView,
 } from 'react-native-gesture-handler';
 import DeleteNotificationButton from './components/DeleteNotificationButton';
 import { FlashList } from '@shopify/flash-list';
@@ -15,30 +16,34 @@ const index = () => {
   return (
     <View style={styles.scroll}>
       <StackScreen title='Notifications' showHeaderRight={true} />
-      {'noNotifications' !== 'noNotifications' && (
+      {notificationsData.length === 0 && (
         <View style={styles.container}>
           <NoNotifications />
         </View>
       )}
-      <ScrollView style={styles.scroll}>
+      {notificationsData.length > 0 && (
         <GestureHandlerRootView>
-          <FlashList
-            data={notificationsData}
-            renderItem={({ item }) => (
-              <Swipeable renderRightActions={() => DeleteNotificationButton()}>
-                <NotificationItem
-                  icon={item.icon}
-                  title={item.title}
-                  message={item.message}
-                  date={item.date}
-                />
-              </Swipeable>
-            )}
-            estimatedItemSize={110}
-            keyExtractor={(item) => String(item.id)}
-          />
+          <ScrollView style={styles.scroll}>
+            <FlashList
+              data={notificationsData}
+              renderItem={({ item }) => (
+                <Swipeable
+                  renderRightActions={() => DeleteNotificationButton()}
+                >
+                  <NotificationItem
+                    icon={item.icon}
+                    title={item.title}
+                    message={item.message}
+                    date={item.date}
+                  />
+                </Swipeable>
+              )}
+              estimatedItemSize={110}
+              keyExtractor={item => String(item.id)}
+            />
+          </ScrollView>
         </GestureHandlerRootView>
-      </ScrollView>
+      )}
     </View>
   );
 };
