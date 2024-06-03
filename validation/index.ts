@@ -16,3 +16,26 @@ export const joinEventSchema = z.object({
     .max(200, { message: 'Notes must be less than 200 characters' })
     .optional(),
 });
+
+export const loginSchema = z.object({
+  firstInput: z.coerce.number({
+    required_error: 'First number is required',
+    invalid_type_error: 'First input must be a number',
+  }),
+  secondInput: z.coerce.number({
+    required_error: 'Second number is required',
+    invalid_type_error: 'Second input must be a number',
+  }),
+  thirdInput: z.coerce.number({
+    required_error: 'Third number is required',
+    invalid_type_error: 'Third input must be a number',
+  }),
+  fourthInput: z.coerce.number({
+    required_error: 'Fourth number is required',
+    invalid_type_error: 'Fourth input must be a number',
+  }),
+  fifthInput: z.coerce.number({
+    required_error: 'Fifth number is required',
+    invalid_type_error: 'Fifth input must be a number',
+  }),
+});
