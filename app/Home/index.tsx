@@ -11,15 +11,15 @@ import {
 import { Image } from 'expo-image';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { AntDesign } from '@expo/vector-icons';
-import { darkColor, lightColor } from '@/constants/Colors';
+import { darkColor, lightColor, lightGrayColor } from '@/constants/Colors';
 import ExploreScreenCategories from '@/components/categories/ExploreScreenCategories';
 import EventCard from '@/components/cards/EventCard';
 import { useRouter } from 'expo-router';
 import NoStackScreen from '@/components/stacks/NoStackScreen';
 import { FlashList } from '@shopify/flash-list';
-import { homeMainEvents } from '@/constants/dummy';
+import { homeEvents } from '@/constants/dummy';
 
-const Explore = () => {
+const ExploreScreen = () => {
   const router = useRouter();
   return (
     <SafeAreaView style={styles.container}>
@@ -40,7 +40,7 @@ const Explore = () => {
             style={styles.input}
             autoComplete='additional-name'
             placeholder='Search all events...'
-            placeholderTextColor='#cccc'
+            placeholderTextColor={lightGrayColor}
           />
           <AntDesign
             name='search1'
@@ -58,7 +58,7 @@ const Explore = () => {
         showsVerticalScrollIndicator={false}
       >
         <FlashList
-          data={homeMainEvents}
+          data={homeEvents}
           renderItem={({ item }) => (
             <Pressable onPress={() => router.push(`/Event/${2}`)}>
               <EventCard
@@ -71,14 +71,14 @@ const Explore = () => {
             </Pressable>
           )}
           estimatedItemSize={110}
-          keyExtractor={(item) => item.title}
+          keyExtractor={item => item.title}
         />
       </ScrollView>
     </SafeAreaView>
   );
 };
 
-export default Explore;
+export default ExploreScreen;
 
 const styles = StyleSheet.create({
   container: {
