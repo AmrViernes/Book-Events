@@ -55,7 +55,7 @@ export const events = [
   },
 ];
 
-export const homeMainEvents = [
+export const homeEvents = [
   {
     title: 'New home',
     image: require('@/assets/images/photos/1.png'),
