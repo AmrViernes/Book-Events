@@ -14,31 +14,32 @@ const SavedEventsScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Saved Events</Text>
-      {/* {'noSavedItems' === 'noSavedItems' && <NoSaved />} */}
-
-      <GestureHandlerRootView style={{ width: '90%', paddingTop: 100 }}>
-        <ScrollView showsVerticalScrollIndicator={false}>
-          {savedEvents && (
-            <FlashList
-              data={savedEvents}
-              renderItem={({ item }) => (
-                <EventCard
-                  saved={true}
-                  shareable={item.shareable}
-                  dayOfMonth={item.dayOfMonth}
-                  month={item.month}
-                  title={item.title}
-                  category={item.category}
-                  location={item.location}
-                  imageUrl={item.image}
-                />
-              )}
-              estimatedItemSize={110}
-              keyExtractor={item => item.title}
-            />
-          )}
-        </ScrollView>
-      </GestureHandlerRootView>
+      {savedEvents.length === 0 && <NoSaved />}
+      {savedEvents.length > 0 && (
+        <GestureHandlerRootView style={{ width: '90%', paddingTop: 100 }}>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            {savedEvents && (
+              <FlashList
+                data={savedEvents}
+                renderItem={({ item }) => (
+                  <EventCard
+                    saved={true}
+                    shareable={item.shareable}
+                    dayOfMonth={item.dayOfMonth}
+                    month={item.month}
+                    title={item.title}
+                    category={item.category}
+                    location={item.location}
+                    imageUrl={item.image}
+                  />
+                )}
+                estimatedItemSize={110}
+                keyExtractor={item => item.title}
+              />
+            )}
+          </ScrollView>
+        </GestureHandlerRootView>
+      )}
     </View>
   );
 };
