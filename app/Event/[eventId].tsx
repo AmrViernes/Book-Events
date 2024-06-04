@@ -22,7 +22,7 @@ const EventDetailsScreen = () => {
   return (
     <View>
       <View style={styles.headerContainer}>
-        <ImagesStackScreen images={images} />
+        <ImagesStackScreen images={images} heightP={350}/>
         <ImagesStackIcons />
       </View>
 
