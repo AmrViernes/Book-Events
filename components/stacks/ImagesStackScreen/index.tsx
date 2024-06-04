@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { View, useColorScheme, StyleSheet } from 'react-native';
+import { View, useColorScheme, StyleSheet, Text } from 'react-native';
 import { Stack } from 'expo-router';
 import { darkColor, goldColor, lightColor } from '@/constants/Colors';
 import PagerView from 'react-native-pager-view';
 import { BlurView } from 'expo-blur';
 import { Image } from 'expo-image';
 
-const ImagesStackScreen = ({ images }: { images: string[] }) => {
+const ImagesStackScreen = ({ images, heightP }: { images: string[], heightP: any }) => {
   const colorScheme = useColorScheme();
   const [currentIndex, setCurrentIndex] = useState(0);
   return (
@@ -24,7 +24,7 @@ const ImagesStackScreen = ({ images }: { images: string[] }) => {
       />
 
       <PagerView
-        style={{ height: 350, width: '100%', position: 'relative' }}
+        style={{ height: heightP, width: '100%', position: 'relative' }}
         initialPage={0}
         onPageSelected={e => setCurrentIndex(e.nativeEvent.position)}
       >
