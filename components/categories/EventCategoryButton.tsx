@@ -5,9 +5,9 @@ import { lightColor } from '@/constants/Colors';
 
 interface EventCategoryButtonProps {
   name: string;
-  url: string;
-  color: string;
-  pressed: boolean;
+  url?: string;
+  color?: string;
+  pressed?: boolean;
   onPress: () => void;
 }
 const EventCategoryButton: React.FC<EventCategoryButtonProps> = ({
@@ -33,7 +33,8 @@ const EventCategoryButton: React.FC<EventCategoryButtonProps> = ({
         <Image
           source={url}
           placeholder='Notification'
-          style={{ width: 40, height: 40 }}
+          style={{ width: 35, height: 35 }}
+          contentFit='contain'
         />
       </Pressable>
       <Text
