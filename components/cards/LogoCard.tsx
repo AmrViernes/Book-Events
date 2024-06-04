@@ -44,9 +44,10 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     height: '100%',
+    width: '100%',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    position: 'relative',
+    
   },
   pattern: {
     width: '100%',
