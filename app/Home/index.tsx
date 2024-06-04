@@ -3,21 +3,18 @@ import {
   View,
   Text,
   StyleSheet,
-  TextInput,
-  useColorScheme,
   ScrollView,
   Pressable,
 } from 'react-native';
 import { Image } from 'expo-image';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { AntDesign } from '@expo/vector-icons';
-import { darkColor, lightColor, lightGrayColor } from '@/constants/Colors';
 import ExploreScreenCategories from '@/components/categories/ExploreScreenCategories';
 import EventCard from '@/components/cards/EventCard';
 import { useRouter } from 'expo-router';
 import NoStackScreen from '@/components/stacks/NoStackScreen';
 import { FlashList } from '@shopify/flash-list';
 import { homeEvents } from '@/constants/dummy';
+import SearchInput from '@/components/inputs/SearchInput';
 
 const ExploreScreen = () => {
   const router = useRouter();
@@ -35,20 +32,7 @@ const ExploreScreen = () => {
             />
           </Pressable>
         </View>
-        <View style={styles.inputContainer}>
-          <TextInput
-            style={styles.input}
-            autoComplete='additional-name'
-            placeholder='Search all events...'
-            placeholderTextColor={lightGrayColor}
-          />
-          <AntDesign
-            name='search1'
-            size={22}
-            color='#fff'
-            style={{ position: 'absolute', left: 37, top: 13 }}
-          />
-        </View>
+        <SearchInput onPress={() => router.push('/Search')}/>
       </View>
       <View style={styles.categoriesContainer}>
         <ExploreScreenCategories />
@@ -108,34 +92,6 @@ const styles = StyleSheet.create({
     fontFamily: 'sans-serif',
     color: '#fff',
     paddingLeft: 15,
-  },
-  inputContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
-    width: '100%',
-    height: 100,
-  },
-  input: {
-    backgroundColor: darkColor,
-    color: '#fff',
-    position: 'relative',
-    paddingVertical: 10,
-    paddingHorizontal: 50,
-    fontSize: 18,
-    borderRadius: 12,
-    borderColor: lightColor,
-    width: 350,
-    height: 50,
-    shadowColor: '#fff',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 1,
-    elevation: 4,
   },
   categoriesContainer: {
     display: 'flex',
