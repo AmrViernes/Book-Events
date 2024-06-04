@@ -7,7 +7,7 @@ import RecoveryForm from './components/RecoveryForm';
 const RecoveryScreen = () => {
   return (
     <SafeAreaProvider>
-      <StackScreen title='Recovery' />
+      <StackScreen title='Member ID Recovery' />
       <RecoveryForm />
     </SafeAreaProvider>
   );
