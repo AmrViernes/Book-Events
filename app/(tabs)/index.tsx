@@ -1,11 +1,11 @@
 import { StyleSheet, Platform } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import Explore from '@/app/Home';
+import ExploreScreen from '@/app/Home';
 
 export default function HomeScreen() {
   return (
     <SafeAreaProvider>
-      <Explore />
+      <ExploreScreen />
     </SafeAreaProvider>
   );
 }
