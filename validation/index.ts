@@ -39,3 +39,9 @@ export const loginSchema = z.object({
     invalid_type_error: 'Fifth input must be a number',
   }),
 });
+
+export const recoverySchema = z.object({
+  phoneNumber: z
+    .string({ required_error: 'Phone number is required' })
+    .min(8, { message: 'Phone number must be at least 8 digits' }),
+});
