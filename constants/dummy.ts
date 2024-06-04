@@ -102,6 +102,92 @@ export const savedEvents = [
   },
 ];
 
+export const homeCategories = [
+    {
+      name: 'All',
+      urlNormal: require('@/assets/images/icons/All-normal.svg'),
+      urlPressed: require('@/assets/images/icons/All-pressed.svg'),
+    },
+    {
+      name: 'Restaurant',
+      urlNormal: require('@/assets/images/icons/restaurant-normal.svg'),
+      urlPressed: require('@/assets/images/icons/restaurant-pressed.svg'),
+    },
+    {
+      name: 'Fashion',
+      urlNormal: require('@/assets/images/icons/fashion-normal.svg'),
+      urlPressed: require('@/assets/images/icons/fashion-pressed.svg'),
+    },
+    {
+      name: 'Sport',
+      urlNormal: require('@/assets/images/icons/sport-normal.svg'),
+      urlPressed: require('@/assets/images/icons/sport-pressed.svg'),
+    },
+  ];
+
+ export const searchCategories = [
+   {
+     name: 'Transport',
+     urlNormal: require('@/assets/images/icons/transport-normal.svg'),
+     urlPressed: require('@/assets/images/icons/transport-pressed.svg'),
+   },
+   {
+     name: 'Restaurant',
+     urlNormal: require('@/assets/images/icons/restaurant-normal.svg'),
+     urlPressed: require('@/assets/images/icons/restaurant-pressed.svg'),
+   },
+   {
+     name: 'Fashion',
+     urlNormal: require('@/assets/images/icons/fashion-normal.svg'),
+     urlPressed: require('@/assets/images/icons/fashion-pressed.svg'),
+   },
+   {
+     name: 'Sport',
+     urlNormal: require('@/assets/images/icons/sport-normal.svg'),
+     urlPressed: require('@/assets/images/icons/sport-pressed.svg'),
+   },
+   {
+     name: 'Business',
+     urlNormal: require('@/assets/images/icons/business-normal.svg'),
+     urlPressed: require('@/assets/images/icons/business-normal.svg'),
+   },
+   {
+     name: 'Art',
+     urlNormal: require('@/assets/images/icons/art-normal.svg'),
+     urlPressed: require('@/assets/images/icons/art-pressed.svg'),
+   },
+   {
+     name: 'Family',
+     urlNormal: require('@/assets/images/icons/family-normal.svg'),
+     urlPressed: require('@/assets/images/icons/family-pressed.svg'),
+   },
+   {
+     name: 'Hotels',
+     urlNormal: require('@/assets/images/icons/hotels-normal.svg'),
+     urlPressed: require('@/assets/images/icons/hotels-pressed.svg'),
+   },
+   {
+     name: 'Music',
+     urlNormal: require('@/assets/images/icons/music-normal.svg'),
+     urlPressed: require('@/assets/images/icons/music-pressed.svg'),
+   },
+   {
+     name: 'Cars',
+     urlNormal: require('@/assets/images/icons/cars-normal.svg'),
+     urlPressed: require('@/assets/images/icons/cars-normal.svg'),
+   },
+   {
+     name: 'Travel',
+     urlNormal: require('@/assets/images/icons/travel-normal.svg'),
+     urlPressed: require('@/assets/images/icons/travel-normal.svg'),
+   },
+   {
+     name: 'Cinema',
+     urlNormal: require('@/assets/images/icons/cinema-normal.svg'),
+     urlPressed: require('@/assets/images/icons/cinema-normal.svg'),
+   },
+ ]; 
+
 export const notificationsData = [
   {
     id: 1,
