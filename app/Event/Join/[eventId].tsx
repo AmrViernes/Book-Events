@@ -1,5 +1,5 @@
 import StackScreen from '@/components/stacks/StackScreen';
-import { lightColor } from '@/constants/Colors';
+import { backgroundColor, lightColor, lightGrayColor } from '@/constants/Colors';
 import { Feather } from '@expo/vector-icons';
 import { Image } from 'expo-image';
 import React from 'react';
@@ -9,7 +9,7 @@ import GuestConfirmButtons from '../components/GuestConfirmButtons';
 
 const JoinUsScreen = () => {
   return (
-    <ScrollView style={{ height: '100%' }} showsVerticalScrollIndicator={false}>
+    <ScrollView style={{ height: '100%', backgroundColor: backgroundColor }} showsVerticalScrollIndicator={false}>
       <StackScreen title='Join Us' />
 
       <View style={styles.container}>
@@ -31,13 +31,13 @@ const JoinUsScreen = () => {
 
         <View style={styles.dateContainer}>
           <View style={styles.dateSubContainer}>
-            <Feather name='calendar' size={24} color='white' />
+            <Feather name='calendar' size={24} color={lightGrayColor} />
             <Text style={styles.dateText}>
               23 May - Jul 24, 2024 | 09:45 AM
             </Text>
           </View>
           <View style={styles.dateSubContainer}>
-            <Feather name='map-pin' size={24} color='white' />
+            <Feather name='map-pin' size={24} color={lightGrayColor} />
             <Text style={styles.dateText}>Cairo, Egypt</Text>
           </View>
         </View>
@@ -66,13 +66,12 @@ const styles = StyleSheet.create({
   },
   aboutText: {
     color: lightColor,
-    fontWeight: 'bold',
     fontSize: 18,
-    marginVertical: 10,
+    marginVertical: 5,
   },
   aboutEventDescription: {
-    color: lightColor,
-    fontSize: 16,
+    color: lightGrayColor,
+    fontSize: 15,
   },
   imageContainer: {
     borderWidth: 0.3,
@@ -98,8 +97,7 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   dateText: {
-    color: lightColor,
-    fontWeight: 'bold',
-    fontSize: 16,
+    color: lightGrayColor,
+    fontSize: 15,
   },
 });
