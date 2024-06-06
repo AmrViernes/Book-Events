@@ -102,30 +102,8 @@ export const savedEvents = [
   },
 ];
 
-export const homeCategories = [
-    {
-      name: 'All',
-      urlNormal: require('@/assets/images/icons/All-normal.svg'),
-      urlPressed: require('@/assets/images/icons/All-pressed.svg'),
-    },
-    {
-      name: 'Restaurant',
-      urlNormal: require('@/assets/images/icons/restaurant-normal.svg'),
-      urlPressed: require('@/assets/images/icons/restaurant-pressed.svg'),
-    },
-    {
-      name: 'Fashion',
-      urlNormal: require('@/assets/images/icons/fashion-normal.svg'),
-      urlPressed: require('@/assets/images/icons/fashion-pressed.svg'),
-    },
-    {
-      name: 'Sport',
-      urlNormal: require('@/assets/images/icons/sport-normal.svg'),
-      urlPressed: require('@/assets/images/icons/sport-pressed.svg'),
-    },
-  ];
 
- export const searchCategories = [
+ export const categories = [
    {
      name: 'Transport',
      urlNormal: require('@/assets/images/icons/transport-normal.svg'),
