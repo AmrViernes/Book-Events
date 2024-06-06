@@ -180,6 +180,7 @@ const styles = StyleSheet.create({
     borderColor: lightColor,
     backgroundColor: darkColor,
     opacity: 0.9,
+    overflow: 'hidden',
   },
   eventTitleDetailsContainer: {
     flexDirection: 'column',
