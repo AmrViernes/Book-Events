@@ -1,6 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { darkColor, goldColor, lightColor } from '@/constants/Colors';
+import {
+  darkColor,
+  darkGrayColor,
+  goldColor,
+  lightColor,
+  lightGrayColor,
+  mediumGrayColor,
+} from '@/constants/Colors';
 import { ImageBackground } from 'expo-image';
 import { BlurView } from 'expo-blur';
 import { Feather, FontAwesome, Ionicons } from '@expo/vector-icons';
@@ -39,55 +46,52 @@ const EventCard = ({
         </View>
       )}
       <View style={styles.bookmarkButtonContainer}>
-        <Ionicons name={saved ? 'bookmark' : 'bookmark-outline'} size={24} color={saved ? goldColor : lightColor} />
+        <Ionicons
+          name={saved ? 'bookmark' : 'bookmark-outline'}
+          size={24}
+          color={saved ? goldColor : lightColor}
+        />
       </View>
       <View style={styles.eventDetailContainer}>
         <BlurView
-          intensity={10}
-          tint='dark'
+          intensity={50}
+          tint='systemUltraThinMaterialDark'
           style={styles.eventDetailSubContainer}
         >
           <View style={styles.eventTitleDetailsContainer}>
             <Text
-              style={{ color: lightColor, fontWeight: 'bold', fontSize: 18 }}
+              style={{ color: lightColor, fontWeight: 'bold', fontSize: 15 }}
             >
               {title}
             </Text>
-            <View style={{ flexDirection: 'row', width: '100%', gap: 10 }}>
-              <Feather name='map-pin' size={17} color={lightColor} />
-              <Text style={{ color: lightColor }}>{location}</Text>
+            <View style={{ flexDirection: 'row',alignItems: 'center', width: '100%', gap: 3 }}>
+              <Feather name='map-pin' size={16} color={lightColor} />
+              <Text style={{ color: lightColor, fontSize: 14 }}>{location}</Text>
             </View>
           </View>
           <View style={styles.eventDateDetailsContainer}>
-            <View
+            <Text
               style={{
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
+                color: lightColor,
+                fontWeight: 'bold',
+                fontSize: 14,
+                position: 'absolute',
+                top: 1
               }}
             >
-              <Text
-                style={{
-                  color: lightColor,
-                  fontWeight: 'bold',
-                  position: 'absolute',
-                  fontSize: 16,
-                  bottom: -2,
-                }}
-              >
-                {dayOfMonth}
-              </Text>
-              <Text
-                style={{
-                  color: lightColor,
-                  fontWeight: 'bold',
-                  position: 'absolute',
-                  top: -4,
-                }}
-              >
-                {month}
-              </Text>
-            </View>
+              {dayOfMonth}
+            </Text>
+            <Text
+              style={{
+                color: lightColor,
+                fontWeight: 'bold',
+                fontSize: 13,
+                position: 'absolute',
+                bottom: 6
+              }}
+            >
+              {month}
+            </Text>
           </View>
         </BlurView>
       </View>
@@ -104,7 +108,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end',
     height: 200,
-    borderRadius: 20,
+    borderRadius: 15,
     marginVertical: 10,
     overflow: 'hidden',
   },
@@ -128,9 +132,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 10,
     right: 10,
-    borderWidth: 0.9,
-    padding: 8,
-    borderRadius: 50,
+    borderWidth: 1,
+    width: 40,
+    height: 40,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 30,
     borderColor: lightColor,
     backgroundColor: darkColor,
     opacity: 0.8,
@@ -139,9 +147,13 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 10,
     right: 60,
-    borderWidth: 0.9,
-    padding: 8,
-    borderRadius: 50,
+    borderWidth: 1,
+    width: 40,
+    height: 40,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 30,
     borderColor: lightColor,
     backgroundColor: darkColor,
     opacity: 0.8,
@@ -164,7 +176,7 @@ const styles = StyleSheet.create({
     height: '100%',
     paddingHorizontal: 12,
     borderWidth: 0.2,
-    borderRadius: 7,
+    borderRadius: 10,
     borderColor: lightColor,
     backgroundColor: darkColor,
     opacity: 0.9,
@@ -177,13 +189,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 50,
+    borderRadius: 30,
     borderColor: lightColor,
-    backgroundColor: '#cccc',
-    opacity: 0.8,
-    padding: 1,
-    height: 42,
-    width: 42,
-    textAlign: 'center',
+    backgroundColor: mediumGrayColor,
+    height: 40,
+    width: 40,
   },
 });
