@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  Pressable,
-} from 'react-native';
+import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
 import { Image } from 'expo-image';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ExploreScreenCategories from '@/components/categories/ExploreScreenCategories';
@@ -15,32 +9,34 @@ import NoStackScreen from '@/components/stacks/NoStackScreen';
 import { FlashList } from '@shopify/flash-list';
 import { homeEvents } from '@/constants/dummy';
 import SearchInput from '@/components/inputs/SearchInput';
+import { backgroundColor } from '@/constants/Colors';
 
 const ExploreScreen = () => {
   const router = useRouter();
   return (
     <SafeAreaView style={styles.container}>
       <NoStackScreen />
-      <View style={styles.headerContainer}>
-        <View style={styles.titleContainer}>
-          <Text style={styles.titleText}>Explore luxury events</Text>
-          <Pressable onPress={() => router.push('/Notifications')}>
-            <Image
-              source={require('@/assets/images/icons/notification.svg')}
-              placeholder='Notification'
-              style={{ width: 80, height: 80 }}
-            />
-          </Pressable>
-        </View>
-        <SearchInput onPress={() => router.push('/Search')}/>
-      </View>
-      <View style={styles.categoriesContainer}>
-        <ExploreScreenCategories />
-      </View>
       <ScrollView
         style={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={[1]}
       >
+        <View style={styles.headerContainer}>
+          <View style={styles.titleContainer}>
+            <Text style={styles.titleText}>Explore luxury events</Text>
+            <Pressable onPress={() => router.push('/Notifications')}>
+              <Image
+                source={require('@/assets/images/icons/notification.svg')}
+                placeholder='Notification'
+                style={{ width: 70, height: 70 }}
+              />
+            </Pressable>
+          </View>
+          <SearchInput onPress={() => router.push('/Search')} />
+        </View>
+
+        <ExploreScreenCategories />
+
         <FlashList
           data={homeEvents}
           renderItem={({ item }) => (
@@ -72,35 +68,31 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   headerContainer: {
-    display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    justifyContent: 'space-around',
     width: '100%',
-    height: 200,
+    height: 140,
   },
   titleContainer: {
-    display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     width: '100%',
-    height: '100%',
+    height: 65,
+    marginBottom: 8
   },
   titleText: {
-    fontSize: 28,
+    fontSize: 24,
     fontFamily: 'sans-serif',
     color: '#fff',
-    paddingLeft: 15,
   },
   categoriesContainer: {
     display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-    marginVertical: 20,
+    alignItems: 'flex-start',
+    backgroundColor: backgroundColor,
+    marginTop: 20,
     width: '100%',
-    height: 100,
+    height: 140,
   },
   scrollContainer: {
     display: 'flex',
