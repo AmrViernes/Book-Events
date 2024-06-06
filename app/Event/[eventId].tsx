@@ -1,7 +1,12 @@
 import React from 'react';
 import { Pressable, StyleSheet, View, Text, ScrollView } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { darkColor, lightColor } from '@/constants/Colors';
+import {
+  backgroundColor,
+  darkColor,
+  lightColor,
+  lightGrayColor,
+} from '@/constants/Colors';
 import ImagesStackScreen from '@/components/stacks/ImagesStackScreen';
 import ImagesStackIcons from '@/components/stacks/ImagesStackScreen/StackIcons';
 import { Image } from 'expo-image';
@@ -20,9 +25,9 @@ const EventDetailsScreen = () => {
   ];
 
   return (
-    <View>
+    <>
       <View style={styles.headerContainer}>
-        <ImagesStackScreen images={images} heightP={350}/>
+        <ImagesStackScreen images={images} heightP={333} />
         <ImagesStackIcons />
       </View>
 
@@ -43,7 +48,17 @@ const EventDetailsScreen = () => {
           </Text>
         </View>
 
-        <View style={styles.container}>
+        <View
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: 10,
+            width: '90%',
+            paddingLeft: 20,
+            paddingVertical: 10,
+          }}
+        >
           <Text style={styles.eventTagText}>Restaurant</Text>
 
           <View
@@ -55,18 +70,18 @@ const EventDetailsScreen = () => {
           >
             <Image
               source={require('@/assets/images/photos/e1.png')}
-              style={{ width: 40, height: 40, marginRight: -15, zIndex: 2 }}
+              style={{ width: 30, height: 30, marginRight: -15, zIndex: 2 }}
             />
             <Image
               source={require('@/assets/images/photos/e2.png')}
-              style={{ width: 40, height: 40, marginRight: -15, zIndex: 1 }}
+              style={{ width: 30, height: 30, marginRight: -15, zIndex: 1 }}
             />
             <Image
               source={require('@/assets/images/photos/e3.png')}
-              style={{ width: 40, height: 40 }}
+              style={{ width: 30, height: 30 }}
             />
 
-            <Text style={{ color: lightColor }}>10,000 + going</Text>
+            <Text style={{ color: lightGrayColor }}>10,000 + going</Text>
           </View>
         </View>
 
@@ -96,8 +111,10 @@ const EventDetailsScreen = () => {
             quibusdam dolore, voluptatum earum ipsa placeat iusto libero quia
             exercitationem. Laboriosam, recusandae totam.
           </Text>
-          <Pressable style={{ position: 'absolute', bottom: 0, right: 60 }}>
-            <Text style={styles.aboutText}>Read More</Text>
+          <Pressable style={{ position: 'absolute', bottom: 0, right: 80 }}>
+            <Text style={{ color: lightColor, fontWeight: 'bold' }}>
+              Read More
+            </Text>
           </Pressable>
         </View>
 
@@ -139,15 +156,14 @@ const EventDetailsScreen = () => {
             </Text>
           </View>
         </View>
-
-        <View style={[styles.container, { marginVertical: 30 }]}>
-          <GoldButton
-            title='Request to Join'
-            onPress={() => router.push(`/Event/Join/${eventId}`)}
-          />
-        </View>
       </ScrollView>
-    </View>
+      <View style={styles.joinButtonContainer}>
+        <GoldButton
+          title='Request to Join'
+          onPress={() => router.push(`/Event/Join/${eventId}`)}
+        />
+      </View>
+    </>
   );
 };
 
@@ -168,13 +184,9 @@ const styles = StyleSheet.create({
     height: 'auto',
   },
   scrollContainer: {
-    display: 'flex',
     flexDirection: 'column',
-    paddingBottom: 20,
-    borderWidth: 0.5,
-    borderRadius: 10,
     width: '100%',
-    height: '50%',
+    backgroundColor: backgroundColor,
   },
   eventTagText: {
     fontSize: 16,
@@ -192,7 +204,8 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    gap: 10,
+    paddingHorizontal: 20,
     alignSelf: 'center',
     borderRadius: 10,
     width: '95%',
@@ -202,18 +215,29 @@ const styles = StyleSheet.create({
   },
   dateText: {
     color: lightColor,
-    fontWeight: 'bold',
-    fontSize: 16,
+    textAlign: 'left',
+    fontSize: 15,
   },
   aboutText: {
     color: lightColor,
     fontWeight: 'bold',
-    fontSize: 16,
+    fontSize: 15,
     alignSelf: 'flex-start',
+    paddingBottom: 5,
   },
   aboutEventDescription: {
     position: 'relative',
-    color: lightColor,
+    color: lightGrayColor,
     fontSize: 14,
+  },
+  joinButtonContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center',
+    backgroundColor: backgroundColor,
+    height: 90,
+    width: '100%',
+    paddingHorizontal: 20,
   },
 });
