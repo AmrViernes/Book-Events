@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import NoSaved from './components/NoSaved';
-import { lightColor } from '@/constants/Colors';
+import { backgroundColor, lightColor } from '@/constants/Colors';
 import { savedEvents } from '@/constants/dummy';
 import { FlashList } from '@shopify/flash-list';
 import EventCard from '@/components/cards/EventCard';
@@ -55,6 +55,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     alignSelf: 'center',
     position: 'relative',
+    backgroundColor: backgroundColor,
+    paddingBottom: 100,
   },
   title: {
     color: lightColor,
