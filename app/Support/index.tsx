@@ -5,7 +5,7 @@ import LogoCard from '@/components/cards/LogoCard';
 const SupportScreen = () => {
   return (
     <LogoCard
-      height={500}
+      height={600}
       title='Hello ,How can we help you ?'
       description='We are always happy to help. Please feel free to contact us if you
             need anything.'
