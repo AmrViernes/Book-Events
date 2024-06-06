@@ -9,15 +9,15 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 const images = [
     {
-      image: require('@/assets/images/photos/intro1.jpg'),
+      image: require('@/assets/images/photos/intro1.png'),
     description: 'Experience luxury made simple. Let us take care of everything for you.'
     },
     {
-      image: require('@/assets/images/photos/intro2.jpg'),
+      image: require('@/assets/images/photos/intro2.png'),
     description: 'Simplifying your life, from business trips to family vacations.'
     },
     {
-      image: require('@/assets/images/photos/intro3.jpg'),
+      image: require('@/assets/images/photos/intro3.png'),
     description: "Seize the opportunity to experience the world's most incredible events."
     },
 ];
@@ -66,7 +66,7 @@ const OnBoarding = () => {
             style={[
               styles.dot,
               {
-                width: currentIndex === index ? 40 : 10,
+                width: currentIndex === index ? 26 : 7,
                 backgroundColor: currentIndex === index ? goldColor : '#cccc',
               },
             ]}
@@ -102,15 +102,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',
-    bottom: 100,
+    bottom: 130,
     right: 0,
     left: 0,
   },
   dot: {
     flexDirection: 'row',
-    height: 8,
+    height: 7,
     borderRadius: 5,
-    marginHorizontal: 5,
+    marginHorizontal: 3,
   },
   buttonContainer: {
     display: 'flex',
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     backgroundColor: darkColor,
     borderTopRightRadius: 20,
     borderTopLeftRadius: 20,
-    height: '13%',
+    height: 102,
     bottom: 0,
     right: 0,
     left: 0,
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
     position: 'absolute',
-    top: 300,
+    top: 250,
     right: 0,
     bottom: 0,
     left: 0,
@@ -150,13 +150,13 @@ const styles = StyleSheet.create({
   title: {
     color: lightColor,
     fontWeight: 'bold',
-    fontSize: 28,
+    fontSize: 24,
     textAlign: 'left',
     marginBottom: 10,
   },
   description: {
     color: lightGrayColor,
-    fontSize: 20,
+    fontSize: 18,
     textAlign: 'left',
   },
 });
