@@ -1,8 +1,8 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, ScrollView } from 'react-native';
 import React from 'react';
 import EventCategoryButton from './EventCategoryButton';
-import { goldColor } from '@/constants/Colors';
-import { homeCategories } from '@/constants/dummy';
+import { backgroundColor, goldColor } from '@/constants/Colors';
+import { categories } from '@/constants/dummy';
 
 const ExploreScreenCategories = () => {
   const [pressed, setPressed] = React.useState<string | null>(null);
@@ -12,18 +12,24 @@ const ExploreScreenCategories = () => {
   };
 
   return (
-    <View style={styles.container}>
-      {homeCategories.map(category => (
+    <ScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      style={styles.container}
+    >
+      {categories.map(category => (
         <EventCategoryButton
           key={category.name}
           name={category.name}
-          url={pressed === category.name ? category.urlPressed : category.urlNormal}
+          url={
+            pressed === category.name ? category.urlPressed : category.urlNormal
+          }
           color={goldColor}
           pressed={pressed === category.name}
           onPress={() => handlePress(category.name)}
         />
       ))}
-    </View>
+    </ScrollView>
   );
 };
 
@@ -34,5 +40,9 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     gap: 15,
+    width: '100%',
+    backgroundColor: backgroundColor,
+    marginTop: 20,
+    height: 100,
   },
 });
