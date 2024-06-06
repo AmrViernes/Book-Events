@@ -3,6 +3,7 @@ import { StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import GuestProfile from './components/GuestProfile';
 import UserProfile from './components/UserProfile';
+import { backgroundColor } from '@/constants/Colors';
 
 const ProfileScreen = () => {
   return (
@@ -20,6 +21,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',
-    width: '90%',
+    width: '100%',
+    backgroundColor: backgroundColor,
   },
 });
