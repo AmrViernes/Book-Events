@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import { darkColor, goldColor, lightColor } from '@/constants/Colors';
 
 type Props = {
@@ -10,17 +10,20 @@ type Props = {
 
 const StringInput = (props: Props) => {
   const { ...otherProps } = props;
+  const [isFocused, setIsFocused] = useState(false);
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{props.title}</Text>
       <View>
       <TextInput
-        style={[styles.input, props.error && {borderWidth: 1, borderColor: 'red'}]}
+        style={[styles.input, props.error && {borderWidth: 1, borderColor: 'red'}, isFocused && {borderColor: goldColor}]}
         {...otherProps}
         autoComplete='additional-name'
         textContentType='name'
         placeholderTextColor='#ccc'
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
       />
       </View>
       {props.errorText && (
@@ -40,7 +43,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 15,
     marginBottom: 5,
   },
   input: {
@@ -50,7 +53,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: goldColor,
+    borderColor: lightColor,
     width: '100%',
     shadowColor: '#fff',
     shadowOffset: {
