@@ -33,130 +33,139 @@ const LoginForm = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.formContainer}>
-        <Controller
-          name='firstInput'
-          control={control}
-          rules={{ required: true, minLength: 1, maxLength: 1 }}
-          render={({ field: { onChange, value } }) => (
-            <LoginInput
-              onChangeText={value => {
-                onChange(value);
-                /^[0-9]*$/.test(value) &&
-                  value !== '' &&
-                  secondInputRef.current?.focus();
-              }}
-              error={errors.firstInput as any}
-              errorText={errors?.firstInput?.message as string}
-              autoFocus={true}
-              ref={firstInputRef}
-            />
-          )}
-        />
-        <Controller
-          name='secondInput'
-          control={control}
-          rules={{ required: true, minLength: 1, maxLength: 1 }}
-          render={({ field: { onChange, value } }) => (
-            <LoginInput
-              onChangeText={value => {
-                onChange(value);
-                if (/^[0-9]*$/.test(value) && value !== '') {
-                  thirdInputRef.current?.focus();
-                } else if (value === '') {
-                  firstInputRef.current?.focus();
-                }
-              }}
-              error={errors.secondInput as any}
-              errorText={errors?.secondInput?.message as string}
-              ref={secondInputRef}
-            />
-          )}
-        />
-        <Controller
-          name='thirdInput'
-          control={control}
-          rules={{ required: true, minLength: 1, maxLength: 1 }}
-          render={({ field: { onChange, value } }) => (
-            <LoginInput
-              onChangeText={value => {
-                onChange(value);
-                if (/^[0-9]*$/.test(value) && value !== '') {
-                  fourthInputRef.current?.focus();
-                } else if (value === '') {
-                  secondInputRef.current?.focus();
-                }
-              }}
-              error={errors.thirdInput as any}
-              errorText={errors?.thirdInput?.message as string}
-              ref={thirdInputRef}
-            />
-          )}
-        />
-        <Controller
-          name='fourthInput'
-          control={control}
-          rules={{ required: true, minLength: 1, maxLength: 1 }}
-          render={({ field: { onChange, value } }) => (
-            <LoginInput
-              onChangeText={value => {
-                onChange(value);
-                if (/^[0-9]*$/.test(value) && value !== '') {
-                  fifthInputRef.current?.focus();
-                } else if (value === '') {
-                  thirdInputRef.current?.focus();
-                }
-              }}
-              error={errors.fourthInput as any}
-              errorText={errors?.fourthInput?.message as string}
-              ref={fourthInputRef}
-            />
-          )}
-        />
-        <Controller
-          name='fifthInput'
-          control={control}
-          rules={{ required: true, minLength: 1, maxLength: 1 }}
-          render={({ field: { onChange, value } }) => (
-            <LoginInput
-              onChangeText={value => {
-                onChange(value);
-                value === '' && fourthInputRef.current?.focus();
-              }}
-              error={errors.fifthInput as any}
-              errorText={errors?.fifthInput?.message as string}
-              ref={fifthInputRef}
-            />
-          )}
-        />
-
-      {(errors.firstInput ||
-        errors.secondInput ||
-        errors.thirdInput ||
-        errors.fourthInput ||
-        errors.fifthInput) && (
-        <Text style={{ color: 'red', fontSize: 14, position: 'absolute', bottom: -25 }}>
-          Member ID must be a number.
-        </Text>
-      )}
-      </View>
-
       <View>
-        <Pressable onPress={() => router.push('/Recovery')}>
-          <Text style={{ color: goldColor, paddingVertical: 20, fontSize: 16 }}>
-            Forgot your member ID?
-          </Text>
-        </Pressable>
-        <GoldButton onPress={handleSubmit(onSubmit)} title='Login' />
+        <View style={styles.formContainer}>
+          <Controller
+            name='firstInput'
+            control={control}
+            rules={{ required: true, minLength: 1, maxLength: 1 }}
+            render={({ field: { onChange, value } }) => (
+              <LoginInput
+                onChangeText={value => {
+                  onChange(value);
+                  /^[0-9]*$/.test(value) &&
+                    value !== '' &&
+                    secondInputRef.current?.focus();
+                }}
+                error={errors.firstInput as any}
+                errorText={errors?.firstInput?.message as string}
+                ref={firstInputRef}
+              />
+            )}
+          />
+          <Controller
+            name='secondInput'
+            control={control}
+            rules={{ required: true, minLength: 1, maxLength: 1 }}
+            render={({ field: { onChange, value } }) => (
+              <LoginInput
+                onChangeText={value => {
+                  onChange(value);
+                  if (/^[0-9]*$/.test(value) && value !== '') {
+                    thirdInputRef.current?.focus();
+                  } else if (value === '') {
+                    firstInputRef.current?.focus();
+                  }
+                }}
+                error={errors.secondInput as any}
+                errorText={errors?.secondInput?.message as string}
+                ref={secondInputRef}
+              />
+            )}
+          />
+          <Controller
+            name='thirdInput'
+            control={control}
+            rules={{ required: true, minLength: 1, maxLength: 1 }}
+            render={({ field: { onChange, value } }) => (
+              <LoginInput
+                onChangeText={value => {
+                  onChange(value);
+                  if (/^[0-9]*$/.test(value) && value !== '') {
+                    fourthInputRef.current?.focus();
+                  } else if (value === '') {
+                    secondInputRef.current?.focus();
+                  }
+                }}
+                error={errors.thirdInput as any}
+                errorText={errors?.thirdInput?.message as string}
+                ref={thirdInputRef}
+              />
+            )}
+          />
+          <Controller
+            name='fourthInput'
+            control={control}
+            rules={{ required: true, minLength: 1, maxLength: 1 }}
+            render={({ field: { onChange, value } }) => (
+              <LoginInput
+                onChangeText={value => {
+                  onChange(value);
+                  if (/^[0-9]*$/.test(value) && value !== '') {
+                    fifthInputRef.current?.focus();
+                  } else if (value === '') {
+                    thirdInputRef.current?.focus();
+                  }
+                }}
+                error={errors.fourthInput as any}
+                errorText={errors?.fourthInput?.message as string}
+                ref={fourthInputRef}
+              />
+            )}
+          />
+          <Controller
+            name='fifthInput'
+            control={control}
+            rules={{ required: true, minLength: 1, maxLength: 1 }}
+            render={({ field: { onChange, value } }) => (
+              <LoginInput
+                onChangeText={value => {
+                  onChange(value);
+                  value === '' && fourthInputRef.current?.focus();
+                }}
+                error={errors.fifthInput as any}
+                errorText={errors?.fifthInput?.message as string}
+                ref={fifthInputRef}
+              />
+            )}
+          />
+
+          {(errors.firstInput ||
+            errors.secondInput ||
+            errors.thirdInput ||
+            errors.fourthInput ||
+            errors.fifthInput) && (
+            <Text
+              style={{
+                color: 'red',
+                fontSize: 14,
+                position: 'absolute',
+                bottom: -25,
+              }}
+            >
+              Member ID must be a number.
+            </Text>
+          )}
+        </View>
+        <View>
+          <Pressable onPress={() => router.push('/Recovery')}>
+            <Text
+              style={{ color: goldColor, paddingBottom: 32, paddingTop: 24, fontSize: 15, fontWeight: 'bold' }}
+            >
+              Forgot your member ID?
+            </Text>
+          </Pressable>
+          <GoldButton onPress={handleSubmit(onSubmit)} title='Login' />
+        </View>
       </View>
 
-      <View style={{ flexDirection: 'column', alignItems: 'center', gap: 5 }}>
-        <Text style={{ color: lightGrayColor, fontSize: 14 }}>
+      <View style={{ flexDirection: 'column', alignItems: 'center', gap: 5, height: 150 }}>
+        <Text style={{ color: lightGrayColor, fontSize: 15 }}>
           Not a member?
         </Text>
         <GoldButtonOutline
           title='Continue as guest'
-          onPress={() => router.push('/Home')}
+          onPress={() => router.replace('/(tabs)')}
         />
       </View>
     </View>
@@ -169,13 +178,13 @@ const styles = StyleSheet.create({
   container: {
     display: 'flex',
     flexDirection: 'column',
-    height: '80%',
-    width: '95%',
-    justifyContent: 'space-around',
+    height: 500,
+    width: '90%',
+    justifyContent: 'space-between',
   },
   formContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     position: 'relative',
     width: '20.7%',
