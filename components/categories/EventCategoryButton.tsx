@@ -8,6 +8,7 @@ interface EventCategoryButtonProps {
   url?: string;
   color?: string;
   pressed?: boolean;
+  itemMarginBottom?: number
   onPress: () => void;
 }
 const EventCategoryButton: React.FC<EventCategoryButtonProps> = ({
@@ -15,11 +16,17 @@ const EventCategoryButton: React.FC<EventCategoryButtonProps> = ({
   url,
   color,
   pressed,
+  itemMarginBottom,
   onPress,
 }) => {
   return (
     <View
-      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        paddingBottom: itemMarginBottom,
+      }}
     >
       <Pressable
         style={[
@@ -33,7 +40,7 @@ const EventCategoryButton: React.FC<EventCategoryButtonProps> = ({
         <Image
           source={url}
           placeholder='Notification'
-          style={{ width: 35, height: 35 }}
+          style={{ width: 30, height: 30 }}
           contentFit='contain'
         />
       </Pressable>
@@ -41,7 +48,7 @@ const EventCategoryButton: React.FC<EventCategoryButtonProps> = ({
         style={{
           color: pressed ? color : lightColor,
           marginTop: 5,
-          fontSize: 16,
+          fontSize: 15,
         }}
       >
         {name}
@@ -57,9 +64,11 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    width: 70,
-    height: 70,
-    borderRadius: 50,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
     borderWidth: 1,
+    borderStyle: 'solid',
+    marginHorizontal: 15,
   },
 });
