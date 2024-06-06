@@ -10,7 +10,7 @@ export const goldColor = '#D6B560';
 export const Colors = {
   light: {
     text: '#ECEDEE',
-    background: darkColor,
+    background: backgroundColor,
     tint: goldColor,
     icon: '#687076',
     tabIconDefault: goldColor,
@@ -18,10 +18,10 @@ export const Colors = {
   },
   dark: {
     text: '#ECEDEE',
-    background: darkColor,
+    background: backgroundColor,
     tint: goldColor,
     icon: '#9BA1A6',
     tabIconDefault: goldColor,
-    tabIconSelected: lightColor,
+    tabIconSelected: darkColor,
   },
 };
