@@ -35,6 +35,7 @@ const ProfileButtonsMenu = ({
           <Octicons name='globe' size={24} color={lightGrayColor} />
           <Text style={styles.title}>Language</Text>
         </View>
+
         <View style={styles.languageContainer}>
           <Text style={{ color: '#cccc' }}>(En)Language</Text>
           <MaterialIcons
@@ -56,7 +57,7 @@ const ProfileButtonsMenu = ({
           size={24}
           color={lightGrayColor}
         />
-        <Text style={styles.title}>Terms and conditions</Text>
+        <Text style={[styles.title, {marginLeft: 0}]}>Terms and conditions</Text>
       </Pressable>
 
       <Pressable
@@ -87,7 +88,7 @@ const ProfileButtonsMenu = ({
       {isLoggedIn && (
         <Pressable style={styles.buttonContainer}>
           <MaterialIcons name='logout' size={24} color={lightGrayColor} />
-          <Text style={styles.title}>Log out</Text>
+          <Text style={[styles.title, {marginLeft: 5}]}>Log out</Text>
         </Pressable>
       )}
     </View>
@@ -102,23 +103,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'center',
-    gap: 15,
+    gap: 14,
     width: '90%',
     paddingTop: 50,
   },
   buttonContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
     width: '100%',
     gap: 10,
     padding: 12,
     borderRadius: 10,
+    height: 48,
     backgroundColor: darkColor,
   },
   title: {
     color: lightGrayColor,
-    fontSize: 20,
+    fontSize: 18,
     marginLeft: 10,
   },
   languageContainer: {
