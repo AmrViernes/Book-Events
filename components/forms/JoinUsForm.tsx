@@ -10,10 +10,11 @@ import TextareaInput from '@/components/inputs/TextareaInput';
 import { useModal } from '@/context/ModelContext';
 import SuccessRequest from '@/app/Event/components/SuccessRequest';
 import PhoneInput from 'react-native-international-phone-number';
-import { darkColor, goldColor } from '@/constants/Colors';
+import { darkColor, goldColor, lightColor } from '@/constants/Colors';
 
 const JoinUsForm = () => {
   const [charCount, setCharCount] = useState(0);
+  const [isFocused, setIsFocused] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const {
     control,
@@ -58,12 +59,16 @@ const JoinUsForm = () => {
 
             <PhoneInput
               value={value}
+              onFocus={() => setIsFocused(true)}
+              onBlur={() => setIsFocused(false)}
               phoneInputStyles={{
                 container: {
                   backgroundColor: darkColor,
                   borderWidth: 1,
                   borderStyle: 'solid',
-                  borderColor: errors.phone ? 'red' : goldColor,
+                  borderColor: errors.phone
+                    ? 'red'
+                    : (isFocused && goldColor) || lightColor,
                   width: '100%',
                 },
                 flagContainer: {
@@ -147,7 +152,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 15,
     marginBottom: -15,
     alignSelf: 'flex-start',
   },
