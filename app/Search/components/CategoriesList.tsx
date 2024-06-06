@@ -1,28 +1,35 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
 import EventCategoryButton from '@/components/categories/EventCategoryButton';
-import { searchCategories } from '@/constants/dummy';
+import { categories } from '@/constants/dummy';
 import { goldColor } from '@/constants/Colors';
 import { useRouter } from 'expo-router';
+import { FlashList } from '@shopify/flash-list';
 
 const CategoriesList = () => {
-    const router = useRouter()
+  const router = useRouter();
   return (
     <View style={styles.container}>
-      {searchCategories.map(category => (
-        <EventCategoryButton
-          key={category.name}
-          url={category.urlNormal}
-          name={category.name}
-          color={goldColor}
-          onPress={() => router.push(`/Search/Category/${category.name}`)}
-        />
-      ))}
+      <FlashList
+        data={categories}
+        estimatedItemSize={12}
+        numColumns={4}
+        renderItem={({ item }) => (
+          <EventCategoryButton
+          itemMarginBottom={15}
+            key={item.name}
+            url={item.urlNormal}
+            name={item.name}
+            color={goldColor}
+            onPress={() => router.push(`/Search/Category/${item.name}`)}
+          />
+        )}
+      />
     </View>
   );
-}
+};
 
-export default CategoriesList
+export default CategoriesList;
 
 const styles = StyleSheet.create({
   container: {
