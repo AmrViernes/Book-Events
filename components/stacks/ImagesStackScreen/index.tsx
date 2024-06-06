@@ -41,7 +41,7 @@ const ImagesStackScreen = ({ images, heightP }: { images: string[], heightP: any
             style={[
               styles.dot,
               {
-                width: currentIndex === index ? 30 : 10,
+                width: currentIndex === index ? 26 : 7,
                 backgroundColor: currentIndex === index ? goldColor : '#cccc',
               },
             ]}
@@ -69,8 +69,8 @@ const styles = StyleSheet.create({
   },
   dot: {
     flexDirection: 'row',
-    height: 10,
+    height: 7,
     borderRadius: 5,
-    marginHorizontal: 5,
+    marginHorizontal: 2,
   },
 });
