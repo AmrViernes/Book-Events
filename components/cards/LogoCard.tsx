@@ -1,7 +1,8 @@
 import React from 'react';
 import { Image } from 'expo-image';
 import { StyleSheet, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';import {
+import { SafeAreaView } from 'react-native-safe-area-context';
+import {
   backgroundColor,
   darkColor,
   lightColor,
@@ -12,11 +13,12 @@ interface Props {
   children: React.ReactNode;
   title: string;
   description: string;
+  height: number
 }
 
-const LogoCard = ({ children, title, description }: Props) => {
+const LogoCard = ({ children, title, description, height }: Props) => {
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <Image
         source={require('@/assets/images/pattern/Pattern.svg')}
         contentFit='cover'
@@ -27,14 +29,14 @@ const LogoCard = ({ children, title, description }: Props) => {
         contentFit='cover'
         style={{ width: 80, height: 80, marginBottom: 30, zIndex: 2 }}
       />
-      <View style={styles.cardsContainer}>
+      <View style={[styles.cardsContainer, {height: height}]}>
         <View style={styles.textContainer}>
           <Text style={styles.textTitle}>{title}</Text>
           <Text style={styles.textDescription}>{description}</Text>
         </View>
         {children}
       </View>
-    </SafeAreaView>
+    </View>
   );
 };
 
@@ -47,7 +49,6 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    
   },
   pattern: {
     width: '100%',
@@ -62,29 +63,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     width: '100%',
-    height: '80%',
+    height: 600,
     backgroundColor: backgroundColor,
-    paddingTop: 20,
+    paddingTop: 22,
     borderTopLeftRadius: 20,
     borderTopRightRadius: 20,
     zIndex: 3,
   },
   textContainer: {
     flexDirection: 'column',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
-    width: '80%',
-    marginBottom: 20,
-    gap: 10,
+    width: '90%',
+    marginBottom: 16,
+    gap: 5,
   },
   textTitle: {
-    fontSize: 24,
+    fontSize: 20,
     color: lightColor,
-    textAlign: 'center',
   },
   textDescription: {
-    fontSize: 16,
+    fontSize: 15,
     color: lightGrayColor,
-    textAlign: 'center',
   },
 });
