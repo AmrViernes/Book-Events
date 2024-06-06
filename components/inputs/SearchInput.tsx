@@ -21,9 +21,9 @@ const SearchInput = (props: Props) => {
       />
       <AntDesign
         name='search1'
-        size={22}
+        size={20}
         color='#fff'
-        style={{ position: 'absolute', left: 37, top: 13 }}
+        style={{ position: 'absolute', left: '8%', top: 14 }}
       />
     </View>
   );
@@ -35,29 +35,20 @@ const styles = StyleSheet.create({
   inputContainer: {
     display: 'flex',
     flexDirection: 'row',
-    alignItems: 'flex-start',
     justifyContent: 'center',
     width: '100%',
-    height: 100,
+    height: 50,
   },
   input: {
     backgroundColor: darkColor,
     color: '#fff',
     position: 'relative',
-    paddingVertical: 10,
     paddingHorizontal: 50,
-    fontSize: 18,
+    fontSize: 15,
     borderRadius: 12,
+    borderWidth: 1,
     borderColor: lightColor,
     width: 350,
     height: 50,
-    shadowColor: '#fff',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 1,
-    elevation: 4,
   },
 });
