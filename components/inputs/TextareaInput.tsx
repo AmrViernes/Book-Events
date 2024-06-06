@@ -6,10 +6,11 @@ type Props = {
   title: string;
   errorText?: string;
   error?: boolean;
-  charCount?: number
+  charCount?: number;
 } & TextInput['props'];
 
 const TextareaInput = (props: Props) => {
+  const [isFocused, setIsFocused] = useState(false);
   const { ...otherProps } = props;
 
   return (
@@ -20,6 +21,7 @@ const TextareaInput = (props: Props) => {
           style={[
             styles.input,
             props.error && { borderWidth: 1, borderColor: 'red' },
+            isFocused ? { borderColor: goldColor } : { borderColor: lightColor },
           ]}
           {...otherProps}
           autoComplete='additional-name'
@@ -27,6 +29,8 @@ const TextareaInput = (props: Props) => {
           numberOfLines={5}
           textContentType='name'
           placeholderTextColor='#ccc'
+          onFocus={() => setIsFocused(true)}
+          onBlur={() => setIsFocused(false)}
         />
         <Text style={styles.charCount}>{props.charCount}/200</Text>
       </View>
@@ -47,7 +51,7 @@ const styles = StyleSheet.create({
   },
   title: {
     color: '#fff',
-    fontSize: 16,
+    fontSize: 15,
     marginBottom: 5,
   },
   input: {
