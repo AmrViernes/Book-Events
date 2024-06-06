@@ -1,6 +1,6 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Colors, darkColor } from '@/constants/Colors';
+import { Colors, darkColor, goldColor } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { Image } from 'expo-image';
 
@@ -10,18 +10,19 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'dark'].tint,
+        tabBarActiveTintColor: goldColor,
         headerShown: false,
         tabBarLabelStyle: {
-          fontSize: 12
+          fontSize: 10,
+          position: 'absolute',
         },
         tabBarStyle: {
-          height: 80,
+          height: 90,
           paddingBottom: 13,
-          backgroundColor: Colors[colorScheme ?? 'light'].background,
+          backgroundColor: darkColor,
           borderTopRightRadius: 20,
           borderTopLeftRadius: 20,
-          borderTopColor: darkColor
+          borderTopColor: darkColor,
         },
       }}
     >
@@ -36,7 +37,7 @@ export default function TabLayout() {
                   ? require('@/assets/images/icons/explore-pressed.svg')
                   : require('@/assets/images/icons/explore-normal.svg')
               }
-              style={{ width: 30, height: 30 }}
+              style={{ width: 24, height: 24 }}
             />
           ),
         }}
@@ -52,7 +53,7 @@ export default function TabLayout() {
                   ? require('@/assets/images/icons/bookmark-pressed.svg')
                   : require('@/assets/images/icons/bookmark-normal.svg')
               }
-              style={{ width: 30, height: 30 }}
+              style={{ width: 24, height: 24 }}
             />
           ),
         }}
@@ -68,7 +69,7 @@ export default function TabLayout() {
                   ? require('@/assets/images/icons/support-pressed.svg')
                   : require('@/assets/images/icons/support-normal.svg')
               }
-              style={{ width: 30, height: 30 }}
+              style={{ width: 24, height: 24 }}
             />
           ),
         }}
@@ -84,7 +85,7 @@ export default function TabLayout() {
                   ? require('@/assets/images/icons/user-pressed.svg')
                   : require('@/assets/images/icons/user-normal.svg')
               }
-              style={{ width: 30, height: 30 }}
+              style={{ width: 24, height: 24 }}
             />
           ),
         }}
