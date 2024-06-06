@@ -1,7 +1,5 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
-import { ImageBackground } from 'expo-image'
-import ImagesStackScreen from '@/components/stacks/ImagesStackScreen'
 import NoStackScreen from '@/components/stacks/NoStackScreen'
 import OnBoarding from '@/components/OnBoarding'
 
