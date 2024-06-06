@@ -66,6 +66,8 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     alignItems: 'center',
+    backgroundColor: backgroundColor,
+    paddingBottom: 100,
   },
   headerContainer: {
     flexDirection: 'column',
