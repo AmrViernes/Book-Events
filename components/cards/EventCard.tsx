@@ -42,13 +42,13 @@ const EventCard = ({
       )}
       {shareable && (
         <View style={styles.shareButtonContainer}>
-          <Feather name='share-2' size={24} color={lightColor} />
+          <Feather name='share-2' size={20} color={lightColor} />
         </View>
       )}
       <View style={styles.bookmarkButtonContainer}>
         <Ionicons
           name={saved ? 'bookmark' : 'bookmark-outline'}
-          size={24}
+          size={20}
           color={saved ? goldColor : lightColor}
         />
       </View>
@@ -109,13 +109,13 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     height: 200,
     borderRadius: 15,
-    marginVertical: 10,
+    marginVertical: 8,
     overflow: 'hidden',
   },
   categoryNameContainer: {
     position: 'absolute',
-    top: 10,
-    left: 10,
+    top: 18,
+    left: 18,
     borderWidth: 0.6,
     paddingHorizontal: 8,
     paddingVertical: 4,
@@ -130,11 +130,11 @@ const styles = StyleSheet.create({
   },
   bookmarkButtonContainer: {
     position: 'absolute',
-    top: 10,
-    right: 10,
+    top: 18,
+    right: 18,
     borderWidth: 1,
-    width: 40,
-    height: 40,
+    width: 30,
+    height: 30,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -145,11 +145,11 @@ const styles = StyleSheet.create({
   },
   shareButtonContainer: {
     position: 'absolute',
-    top: 10,
+    top: 18,
     right: 60,
     borderWidth: 1,
-    width: 40,
-    height: 40,
+    width: 30,
+    height: 30,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -184,6 +184,7 @@ const styles = StyleSheet.create({
   },
   eventTitleDetailsContainer: {
     flexDirection: 'column',
+    gap: 5,
   },
   eventDateDetailsContainer: {
     display: 'flex',
