@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     height: '100%',
     width: '100%',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     alignSelf: 'center',
     position: 'relative',
@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
   },
   title: {
     color: lightColor,
-    fontSize: 22,
+    fontSize: 24,
+    height: 71,
     position: 'absolute',
     top: 50,
   },
