@@ -10,7 +10,7 @@ import HistoryTabs from './components/HistoryTabs';
 import HistoryCard from './components/HistoryCard';
 import { FlashList } from '@shopify/flash-list';
 import { events } from '@/constants/dummy';
-import { lightColor } from '@/constants/Colors';
+import { backgroundColor, lightColor } from '@/constants/Colors';
 
 const HistoryScreen = () => {
   const [selected, setSelected] = useState<string>('Pending');
@@ -52,6 +52,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     height: '100%',
+    backgroundColor: backgroundColor,
   },
   noHistoryText: {
     textAlign: 'center',
