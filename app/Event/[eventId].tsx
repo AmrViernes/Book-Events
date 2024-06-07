@@ -121,7 +121,7 @@ const EventDetailsScreen = () => {
         <View
           style={[
             styles.container,
-            { borderWidth: 0.3, borderRadius: 15, overflow: 'hidden' },
+            { borderWidth: 0.3, borderRadius: 15, overflow: 'hidden', width: '90%' },
           ]}
         >
           <MapView
