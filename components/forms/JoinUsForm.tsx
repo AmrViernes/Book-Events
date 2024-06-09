@@ -10,7 +10,7 @@ import TextareaInput from '@/components/inputs/TextareaInput';
 import { useModal } from '@/context/ModelContext';
 import SuccessRequest from '@/app/Event/components/SuccessRequest';
 import PhoneInput from 'react-native-international-phone-number';
-import { darkColor, goldColor, lightColor } from '@/constants/Colors';
+import { darkColor, goldColor, lightGrayColor, mediumGrayColor } from '@/constants/Colors';
 
 const JoinUsForm = () => {
   const [charCount, setCharCount] = useState(0);
@@ -64,11 +64,11 @@ const JoinUsForm = () => {
               phoneInputStyles={{
                 container: {
                   backgroundColor: darkColor,
-                  borderWidth: 1,
+                  borderWidth: 0.8,
                   borderStyle: 'solid',
                   borderColor: errors.phone
                     ? 'red'
-                    : (isFocused && goldColor) || lightColor,
+                    : (isFocused && goldColor) || mediumGrayColor,
                   width: '100%',
                 },
                 flagContainer: {
@@ -93,6 +93,43 @@ const JoinUsForm = () => {
                 input: {
                   color: '#F3F3F3',
                   fontSize: 14,
+                },
+              }}
+              modalStyles={{
+                modal: {
+                  backgroundColor: '#333333',
+                  borderWidth: 1,
+                },
+                backdrop: {},
+                divider: {
+                  backgroundColor: 'transparent',
+                },
+                countriesList: {},
+                searchInput: {
+                  display: 'none',
+                  borderRadius: 2,
+                  borderWidth: 0.1,
+                  backgroundColor: '#333333',
+                  paddingHorizontal: 12,
+                  height: 46,
+                },
+                countryButton: {
+                  borderWidth: 0,
+                  backgroundColor: darkColor,
+                  marginVertical: 4,
+                  paddingVertical: 0,
+                },
+                noCountryText: {},
+                noCountryContainer: {},
+                flag: {
+                  color: '#FFFFFF',
+                  fontSize: 20,
+                },
+                callingCode: {
+                  color: '#F3F3F3',
+                },
+                countryName: {
+                  color: '#F3F3F3',
                 },
               }}
               theme='dark'
