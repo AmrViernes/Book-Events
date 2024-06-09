@@ -1,4 +1,4 @@
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { I18nManager, Pressable, StyleSheet, Share, View } from 'react-native';
 import React from 'react';
 import { darkColor } from '@/constants/Colors';
 import { FontAwesome5 } from '@expo/vector-icons';
@@ -8,16 +8,33 @@ import { useRouter } from 'expo-router';
 
 const ImagesStackIcons = () => {
   const router = useRouter();
+  const onShare = async () => {
+    try {
+      await Share.share({
+        message: 'Welcome to vvip',
+      });
+  
+    } catch (error) {
+      alert((error as Error).message);
+    }
+  }
   return (
     <View style={styles.headerContainer}>
       <Pressable style={styles.iconContainer} onPress={() => router.back()}>
-        <FontAwesome5 name='arrow-left' size={24} color='white' />
+        {I18nManager.isRTL ? (
+          <FontAwesome5 name='arrow-right' size={24} color='white' />
+        ) : (
+          <FontAwesome5 name='arrow-left' size={24} color='white' />
+        )}
       </Pressable>
       <View style={{ flexDirection: 'row', gap: 10 }}>
         <Pressable style={styles.iconContainer}>
           <Octicons name='bookmark' size={24} color='white' />
         </Pressable>
-        <Pressable style={styles.iconContainer}>
+        <Pressable
+          style={styles.iconContainer}
+          onPress={onShare}
+        >
           <Ionicons name='share-social-outline' size={24} color='white' />
         </Pressable>
       </View>
