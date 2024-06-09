@@ -7,6 +7,7 @@ import {
   Octicons,
 } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import Toggle from '@/components/Toggle';
 
 const ProfileButtonsMenu = ({
   isLoggedIn = false,
@@ -57,7 +58,9 @@ const ProfileButtonsMenu = ({
           size={24}
           color={lightGrayColor}
         />
-        <Text style={[styles.title, {marginLeft: 0}]}>Terms and conditions</Text>
+        <Text style={[styles.title, { marginLeft: 0 }]}>
+          Terms and conditions
+        </Text>
       </Pressable>
 
       <Pressable
@@ -75,20 +78,13 @@ const ProfileButtonsMenu = ({
           <Text style={styles.title}>Push notification</Text>
         </View>
 
-        <Switch
-          trackColor={{ false: '#767577', true: '#81b0ff' }}
-          thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-          style={{ transform: [{ scaleX: 1 }, { scaleY: 1 }] }}
-          ios_backgroundColor='#3e3e3e'
-          onValueChange={toggleSwitch}
-          value={isEnabled}
-        />
+        <Toggle isOn={isEnabled} onToggle={toggleSwitch} />
       </Pressable>
 
       {isLoggedIn && (
         <Pressable style={styles.buttonContainer}>
           <MaterialIcons name='logout' size={24} color={lightGrayColor} />
-          <Text style={[styles.title, {marginLeft: 5}]}>Log out</Text>
+          <Text style={[styles.title, { marginLeft: 5 }]}>Log out</Text>
         </Pressable>
       )}
     </View>
