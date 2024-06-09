@@ -4,16 +4,25 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import StackScreen from '@/components/stacks/StackScreen';
 import SearchInput from '@/components/inputs/SearchInput';
 import CategoriesList from './components/CategoriesList';
-import { lightColor } from '@/constants/Colors';
+import { backgroundColor, lightColor } from '@/constants/Colors';
 
 const SearchScreen = () => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.searchContainer}>
       <StackScreen title='Search' />
       <View style={styles.searchContainer}>
-        <SearchInput />
-        <View>
-          <Text style={{ color: lightColor, fontSize: 18, paddingLeft: 15, paddingBottom: 10 }}>
+        <View style={{ width: '95%', alignSelf: 'center' }}>
+          <SearchInput />
+        </View>
+        <View style={{ width: '95%', alignSelf: 'center' }}>
+          <Text
+            style={{
+              color: lightColor,
+              fontSize: 18,
+              paddingLeft: 15,
+              paddingBottom: 20,
+            }}
+          >
             Search by category
           </Text>
           <CategoriesList />
@@ -27,7 +36,10 @@ export default SearchScreen;
 
 const styles = StyleSheet.create({
   searchContainer: {
-    flexDirection: 'column',
     gap: 30,
+    alignSelf: 'center',
+    height: '100%',
+    width: '100%',
+    backgroundColor: backgroundColor,
   },
 });
