@@ -7,10 +7,9 @@ import { FlashList } from '@shopify/flash-list';
 import { homeEvents } from '@/constants/dummy';
 import EventCard from '@/components/cards/EventCard';
 import {
+  backgroundColor,
   darkGrayColor,
   lightColor,
-  lightDarkColor,
-  lightGrayColor,
 } from '@/constants/Colors';
 import SearchInput from '@/components/inputs/SearchInput';
 
@@ -20,32 +19,33 @@ const SearchCategoryScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <StackScreen title='Search' />
-
-      <SearchInput />
-      <View style={styles.subContainer}>
-        <View style={styles.filterContainer}>
-          <Text style={styles.filterName}>{categoryName}</Text>
-          <Pressable onPress={() => router.back()}>
-            <Text style={{ color: lightColor, fontWeight: 'bold' }}>X</Text>
-          </Pressable>
+      <View style={[styles.container, {width: '95%', alignSelf: 'center'}]}>
+        <SearchInput />
+        <View style={styles.subContainer}>
+          <View style={styles.filterContainer}>
+            <Text style={styles.filterName}>{categoryName}</Text>
+            <Pressable onPress={() => router.back()}>
+              <Text style={{ color: lightColor, fontWeight: 'bold' }}>X</Text>
+            </Pressable>
+          </View>
         </View>
+        <FlashList
+          data={homeEvents}
+          renderItem={({ item }) => (
+            <Pressable onPress={() => router.push(`/Event/${2}`)}>
+              <EventCard
+                title={item.title}
+                imageUrl={item.image}
+                dayOfMonth={item.dayOfMonth}
+                month={item.month}
+                location={item.location}
+              />
+            </Pressable>
+          )}
+          estimatedItemSize={110}
+          keyExtractor={item => item.title}
+        />
       </View>
-      <FlashList
-        data={homeEvents}
-        renderItem={({ item }) => (
-          <Pressable onPress={() => router.push(`/Event/${2}`)}>
-            <EventCard
-              title={item.title}
-              imageUrl={item.image}
-              dayOfMonth={item.dayOfMonth}
-              month={item.month}
-              location={item.location}
-            />
-          </Pressable>
-        )}
-        estimatedItemSize={110}
-        keyExtractor={item => item.title}
-      />
     </SafeAreaView>
   );
 };
@@ -57,29 +57,25 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     height: '100%',
     alignSelf: 'center',
-    width: '95%',
+    width: '100%',
+    backgroundColor: backgroundColor
   },
   subContainer: {
     width: '90%',
-    height: 40,
-    alignSelf: 'center',
-    position: 'relative',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
   },
   filterContainer: {
     backgroundColor: darkGrayColor,
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
     gap: 5,
     padding: 8,
-    borderWidth: 0.5,
-    borderColor: lightColor,
+    borderWidth: 1,
     borderRadius: 10,
-    marginHorizontal: 'auto',
-    marginBottom: 10,
-    position: 'absolute',
-    top: -10,
-    left: 0,
+    borderColor: lightColor,
+    marginVertical: 10,
   },
   filterName: {
     color: lightColor,
