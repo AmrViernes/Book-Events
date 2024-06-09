@@ -29,7 +29,7 @@ const OnBoarding = () => {
   return (
     <View style={styles.container}>
       <PagerView
-        style={{ height: '100%', width: '100%', position: 'relative' }}
+        style={[styles.pagerView, { flexDirection: 'row-reverse' }]}
         initialPage={0}
         onPageSelected={e => setCurrentIndex(e.nativeEvent.position)}
       >
@@ -93,6 +93,11 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: '100%',
     height: '100%',
+  },
+  pagerView: {
+    height: '100%',
+    width: '100%',
+    position: 'relative',
   },
   dotsContainer: {
     height: 40,
