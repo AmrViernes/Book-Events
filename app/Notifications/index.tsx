@@ -11,6 +11,7 @@ import {
 import DeleteNotificationButton from './components/DeleteNotificationButton';
 import { FlashList } from '@shopify/flash-list';
 import { notificationsData } from '@/constants/dummy';
+import { backgroundColor } from '@/constants/Colors';
 
 const index = () => {
   return (
@@ -56,6 +57,7 @@ const styles = StyleSheet.create({
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
+    backgroundColor: backgroundColor
   },
   container: {
     flexDirection: 'column',
