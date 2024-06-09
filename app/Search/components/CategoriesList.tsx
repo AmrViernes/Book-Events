@@ -16,7 +16,7 @@ const CategoriesList = () => {
         numColumns={4}
         renderItem={({ item }) => (
           <EventCategoryButton
-          itemMarginBottom={15}
+            itemMarginBottom={15}
             key={item.name}
             url={item.urlNormal}
             name={item.name}
@@ -33,11 +33,7 @@ export default CategoriesList;
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 15,
-    flexWrap: 'wrap',
+    height: '100%',
+    width: '100%',
   },
 });
