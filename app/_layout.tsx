@@ -11,11 +11,14 @@ import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { ModalProvider } from '../context/ModelContext';
+import * as NavigationBar from 'expo-navigation-bar';
+import { darkColor } from '@/constants/Colors';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  NavigationBar.setBackgroundColorAsync(darkColor);
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
