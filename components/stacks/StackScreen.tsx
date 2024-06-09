@@ -1,4 +1,10 @@
-import { Pressable, useColorScheme, StyleSheet, Text } from 'react-native';
+import {
+  Pressable,
+  useColorScheme,
+  StyleSheet,
+  Text,
+  I18nManager,
+} from 'react-native';
 import { Stack, useRouter } from 'expo-router';
 import {
   backgroundColor,
@@ -31,23 +37,48 @@ const StackScreen = ({
             color: 'white',
             fontSize: 28,
           },
-          headerLeft: () => (
-            <Pressable
-              style={styles.iconContainer}
-              onPress={() => router.back()}
-            >
-              <FontAwesome5 name='arrow-left' size={24} color='white' />
-            </Pressable>
-          ),
-          headerRight: () => (
-            <>
-              {showHeaderRight && (
-                <Pressable onPress={() => {}}>
-                  <Text style={{ color: goldColor }}>Clear All</Text>
-                </Pressable>
-              )}
-            </>
-          ),
+          headerLeft: () =>
+            I18nManager.isRTL ? (
+              <>
+                {showHeaderRight && (
+                  <Pressable onPress={() => {}}>
+                    <Text style={{ color: goldColor }}>Clear All</Text>
+                  </Pressable>
+                )}
+              </>
+            ) : (
+              <Pressable
+                style={styles.iconContainer}
+                onPress={() => router.back()}
+              >
+                {I18nManager.isRTL ? (
+                  <FontAwesome5 name='arrow-right' size={24} color='white' />
+                ) : (
+                  <FontAwesome5 name='arrow-left' size={24} color='white' />
+                )}
+              </Pressable>
+            ),
+          headerRight: () =>
+            I18nManager.isRTL ? (
+              <Pressable
+                style={styles.iconContainer}
+                onPress={() => router.back()}
+              >
+                {I18nManager.isRTL ? (
+                  <FontAwesome5 name='arrow-right' size={24} color='white' />
+                ) : (
+                  <FontAwesome5 name='arrow-left' size={24} color='white' />
+                )}
+              </Pressable>
+            ) : (
+              <>
+                {showHeaderRight && (
+                  <Pressable onPress={() => {}}>
+                    <Text style={{ color: goldColor }}>Clear All</Text>
+                  </Pressable>
+                )}
+              </>
+            ),
         }}
       />
     </>
