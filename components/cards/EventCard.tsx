@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, Share, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import {
   darkColor,
@@ -10,7 +10,7 @@ import {
 } from '@/constants/Colors';
 import { ImageBackground } from 'expo-image';
 import { BlurView } from 'expo-blur';
-import { Feather, FontAwesome, Ionicons } from '@expo/vector-icons';
+import { Feather, Ionicons } from '@expo/vector-icons';
 
 interface Props {
   title: string;
@@ -22,6 +22,16 @@ interface Props {
   saved?: boolean;
   shareable?: boolean;
 }
+
+const onShare = async () => {
+  try {
+    await Share.share({
+      message: 'Welcome to vvip',
+    });
+  } catch (error) {
+    alert((error as Error).message);
+  }
+};
 
 const EventCard = ({
   title,
@@ -41,9 +51,12 @@ const EventCard = ({
         </View>
       )}
       {shareable && (
-        <View style={styles.shareButtonContainer}>
+        <Pressable
+          style={styles.shareButtonContainer}
+          onPress={onShare}
+        >
           <Feather name='share-2' size={20} color={lightColor} />
-        </View>
+        </Pressable>
       )}
       <View style={styles.bookmarkButtonContainer}>
         <Ionicons
@@ -64,9 +77,18 @@ const EventCard = ({
             >
               {title}
             </Text>
-            <View style={{ flexDirection: 'row',alignItems: 'center', width: '100%', gap: 3 }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                width: '100%',
+                gap: 3,
+              }}
+            >
               <Feather name='map-pin' size={16} color={lightColor} />
-              <Text style={{ color: lightColor, fontSize: 14 }}>{location}</Text>
+              <Text style={{ color: lightColor, fontSize: 14 }}>
+                {location}
+              </Text>
             </View>
           </View>
           <View style={styles.eventDateDetailsContainer}>
@@ -76,7 +98,7 @@ const EventCard = ({
                 fontWeight: 'bold',
                 fontSize: 14,
                 position: 'absolute',
-                top: 1
+                top: 1,
               }}
             >
               {dayOfMonth}
@@ -87,7 +109,7 @@ const EventCard = ({
                 fontWeight: 'bold',
                 fontSize: 13,
                 position: 'absolute',
-                bottom: 6
+                bottom: 6,
               }}
             >
               {month}
