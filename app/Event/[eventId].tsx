@@ -26,15 +26,14 @@ const EventDetailsScreen = () => {
 
   return (
     <>
-      <View style={styles.headerContainer}>
-        <ImagesStackScreen images={images} heightP={333} />
-        <ImagesStackIcons />
-      </View>
-
       <ScrollView
         style={styles.scrollContainer}
         showsVerticalScrollIndicator={false}
       >
+        <View style={styles.headerContainer}>
+          <ImagesStackScreen images={images} heightP={333} />
+          <ImagesStackIcons />
+        </View>
         <View>
           <Text
             style={{
@@ -121,7 +120,12 @@ const EventDetailsScreen = () => {
         <View
           style={[
             styles.container,
-            { borderWidth: 0.3, borderRadius: 15, overflow: 'hidden', width: '90%' },
+            {
+              borderWidth: 0.3,
+              borderRadius: 15,
+              overflow: 'hidden',
+              width: '90%',
+            },
           ]}
         >
           <MapView
@@ -229,6 +233,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     color: lightGrayColor,
     fontSize: 14,
+    textAlign: 'left',
   },
   joinButtonContainer: {
     display: 'flex',
