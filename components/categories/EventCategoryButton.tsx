@@ -1,7 +1,7 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 import { Image } from 'expo-image';
-import { lightColor } from '@/constants/Colors';
+import { lightGrayColor } from '@/constants/Colors';
 
 interface EventCategoryButtonProps {
   name: string;
@@ -32,7 +32,7 @@ const EventCategoryButton: React.FC<EventCategoryButtonProps> = ({
         style={[
           styles.container,
           {
-            borderColor: pressed ? color : lightColor,
+            borderColor: pressed ? color : lightGrayColor,
           },
         ]}
         onPress={onPress}
@@ -46,7 +46,7 @@ const EventCategoryButton: React.FC<EventCategoryButtonProps> = ({
       </Pressable>
       <Text
         style={{
-          color: pressed ? color : lightColor,
+          color: pressed ? color : lightGrayColor,
           marginTop: 5,
           fontSize: 15,
         }}
