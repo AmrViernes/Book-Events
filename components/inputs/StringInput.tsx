@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import React, { useState } from 'react';
-import { darkColor, goldColor, lightColor } from '@/constants/Colors';
+import { darkColor, goldColor, lightColor, lightGrayColor, mediumGrayColor } from '@/constants/Colors';
 
 type Props = {
   title: string;
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 15,
     marginBottom: 5,
+    textAlign: 'left',
   },
   input: {
     backgroundColor: darkColor,
@@ -53,16 +54,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     borderRadius: 10,
     borderWidth: 1,
-    borderColor: lightColor,
+    borderColor: mediumGrayColor,
     width: '100%',
-    shadowColor: '#fff',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 1,
-    elevation: 4,
   },
   errorText: {
     fontSize: 12,
