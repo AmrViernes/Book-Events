@@ -53,10 +53,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: darkColor,
-    borderRadius: 50,
+    borderWidth: 1,
+    borderRadius: 30,
     height: 40,
     width: 40,
-    borderWidth: 0.5,
     borderColor: lightColor,
   },
   textContainer: {
